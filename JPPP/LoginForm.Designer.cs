@@ -48,7 +48,7 @@ namespace JPPP
             // 
             // tbUserName
             // 
-            this.tbUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.tbUserName.BackColor = Colors.mainPanel;
             this.tbUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbUserName.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserName.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -62,7 +62,7 @@ namespace JPPP
             // 
             // tbPassword
             // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.tbPassword.BackColor = Colors.mainPanel;
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPassword.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.WindowFrame;

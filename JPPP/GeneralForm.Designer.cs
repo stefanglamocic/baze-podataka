@@ -42,7 +42,7 @@ namespace JPPP
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.topPanel.BackColor = Colors.topPanel;
             this.topPanel.Controls.Add(this.btnMinimize);
             this.topPanel.Controls.Add(this.btnMaximize);
             this.topPanel.Controls.Add(this.btnClose);
@@ -105,7 +105,7 @@ namespace JPPP
             // 
             this.lblTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTop.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblTop.ForeColor = System.Drawing.SystemColors.Info;
+            this.lblTop.ForeColor = Colors.labelColor;
             this.lblTop.Location = new System.Drawing.Point(0, 0);
             this.lblTop.Name = "lblTop";
             this.lblTop.Size = new System.Drawing.Size(375, 28);
@@ -119,7 +119,7 @@ namespace JPPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.BackColor = Colors.mainPanel;
             this.ClientSize = new System.Drawing.Size(375, 468);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

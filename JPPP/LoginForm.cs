@@ -22,7 +22,7 @@ namespace JPPP
             if (tbUserName.Text == "Korisničko Ime")
             {
                 tbUserName.Text = "";
-                tbUserName.ForeColor = Color.White;
+                tbUserName.ForeColor = Colors.labelColor;
             }
         }
 
@@ -41,7 +41,7 @@ namespace JPPP
             {
                 tbPassword.Text = "";
                 tbPassword.UseSystemPasswordChar = true;
-                tbPassword.ForeColor = Color.White;
+                tbPassword.ForeColor = Colors.labelColor;
             }
         }
 

@@ -48,7 +48,7 @@ namespace JPPP
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            btnClose.BackColor = Colors.topPanelDark;
+            btnClose.BackColor = Colors.topPanel;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace JPPP
 
         private void btnMinimize_MouseLeave(object sender, EventArgs e)
         {
-            btnMinimize.BackColor = Colors.topPanelDark;
+            btnMinimize.BackColor = Colors.topPanel;
         }
 
         private void btnMaximize_MouseEnter(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace JPPP
 
         private void btnMaximize_MouseLeave(object sender, EventArgs e)
         {
-            btnMaximize.BackColor = Colors.topPanelDark;
+            btnMaximize.BackColor = Colors.topPanel;
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
