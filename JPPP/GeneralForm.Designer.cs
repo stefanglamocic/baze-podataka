@@ -137,10 +137,10 @@ namespace JPPP
 
         #endregion
 
-        private System.Windows.Forms.Panel topPanel;
+        protected System.Windows.Forms.Panel topPanel;
         protected System.Windows.Forms.Label lblTop;
-        private System.Windows.Forms.PictureBox btnMinimize;
+        protected System.Windows.Forms.PictureBox btnMinimize;
         protected System.Windows.Forms.PictureBox btnMaximize;
-        private System.Windows.Forms.PictureBox btnClose;
+        protected System.Windows.Forms.PictureBox btnClose;
     }
 }

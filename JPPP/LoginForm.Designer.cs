@@ -34,17 +34,34 @@ namespace JPPP
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lblTheme = new System.Windows.Forms.Label();
+            this.lblThemeDark = new System.Windows.Forms.Label();
+            this.lblThemeLight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
+            // topPanel
+            // 
+            this.topPanel.BackColor = Colors.topPanel;
+            // 
             // lblTop
             // 
             this.lblTop.Text = "Prijavite se na sistem";
+            this.lblTop.ForeColor = Colors.labelColor;
             // 
             // btnMaximize
             // 
             this.btnMaximize.Visible = false;
+            this.btnMaximize.BackColor = Colors.topPanel;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = Colors.topPanel;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = Colors.topPanel;
             // 
             // tbUserName
             // 
@@ -99,11 +116,52 @@ namespace JPPP
             this.pbLogo.TabIndex = 3;
             this.pbLogo.TabStop = false;
             // 
+            // lblTheme
+            // 
+            this.lblTheme.AutoSize = true;
+            this.lblTheme.Location = new System.Drawing.Point(159, 412);
+            this.lblTheme.Name = "lblTheme";
+            this.lblTheme.Size = new System.Drawing.Size(37, 13);
+            this.lblTheme.TabIndex = 4;
+            this.lblTheme.Text = "Teme:";
+            // 
+            // lblThemeDark
+            // 
+            this.lblThemeDark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblThemeDark.AutoSize = true;
+            this.lblThemeDark.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblThemeDark.ForeColor = Colors.labelColor;
+            this.lblThemeDark.Location = new System.Drawing.Point(78, 432);
+            this.lblThemeDark.Name = "lblThemeDark";
+            this.lblThemeDark.Size = new System.Drawing.Size(30, 13);
+            this.lblThemeDark.TabIndex = 5;
+            this.lblThemeDark.Text = "Dark";
+            this.lblThemeDark.Click += new System.EventHandler(this.lblThemeDark_Click);
+            // 
+            // lblThemeLight
+            // 
+            this.lblThemeLight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblThemeLight.AutoSize = true;
+            this.lblThemeLight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblThemeLight.ForeColor = Colors.labelColor;
+            this.lblThemeLight.Location = new System.Drawing.Point(242, 432);
+            this.lblThemeLight.Name = "lblThemeLight";
+            this.lblThemeLight.Size = new System.Drawing.Size(30, 13);
+            this.lblThemeLight.TabIndex = 6;
+            this.lblThemeLight.Text = "Light";
+            this.lblThemeLight.Click += new System.EventHandler(this.lblThemeLight_Click);
+            // 
             // LoginForm
             // 
+            this.BackColor = Colors.mainPanel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 468);
+            this.ClientSize = new System.Drawing.Size(375, 485);
+            this.Controls.Add(this.lblThemeLight);
+            this.Controls.Add(this.lblThemeDark);
+            this.Controls.Add(this.lblTheme);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
@@ -114,6 +172,9 @@ namespace JPPP
             this.Controls.SetChildIndex(this.tbPassword, 0);
             this.Controls.SetChildIndex(this.btnLogin, 0);
             this.Controls.SetChildIndex(this.pbLogo, 0);
+            this.Controls.SetChildIndex(this.lblTheme, 0);
+            this.Controls.SetChildIndex(this.lblThemeDark, 0);
+            this.Controls.SetChildIndex(this.lblThemeLight, 0);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
@@ -127,5 +188,8 @@ namespace JPPP
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Label lblTheme;
+        private System.Windows.Forms.Label lblThemeDark;
+        private System.Windows.Forms.Label lblThemeLight;
     }
 }

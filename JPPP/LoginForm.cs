@@ -7,14 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace JPPP
 {
     public partial class LoginForm : GeneralForm
     {
+
+        static string themeFile = "theme.txt";
+        string themePath = Path.Combine(Environment.CurrentDirectory, themeFile);
+        string theme;
+        
         public LoginForm()
         {
+            StreamReader reader = null;
             InitializeComponent();
+            /*try
+            {
+                reader = new StreamReader(themePath);
+                theme = reader.ReadLine();
+                if (theme.Equals("light"))
+                {
+                    lblThemeLight_Click(lblThemeLight, new EventArgs());
+                }
+                else if (theme.Equals("dark"))
+                {
+                    lblThemeDark_Click(lblThemeDark, new EventArgs());
+                }
+            }
+            catch (Exception)
+            {
+                lblThemeDark_Click(lblThemeDark, new EventArgs());
+            }
+            finally 
+            {
+                if(reader != null)
+                    reader.Close();
+            }*/
+               
         }
 
         private void tbUserName_Enter(object sender, EventArgs e)
@@ -52,6 +82,52 @@ namespace JPPP
                 tbPassword.Text = "Lozinka";
                 tbPassword.UseSystemPasswordChar = false;
                 tbPassword.ForeColor = SystemColors.WindowFrame;
+            }
+        }
+
+        private void lblThemeDark_Click(object sender, EventArgs e)
+        {
+            Colors.topPanel = Colors.topPanelDark;
+            Colors.menuPanel = Colors.menuPanelDark;
+            Colors.mainPanel = Colors.mainPanelDark;
+            Colors.labelColor = Colors.labelColorDark;
+            Colors.selectedControl = Colors.selectedControlDark;
+            
+
+            lblThemeDark.ForeColor = Colors.selectedPanel;
+            lblThemeLight.ForeColor = Colors.labelColor;
+
+            InitializeComponent();
+            this.Refresh();
+        }
+
+        private void lblThemeLight_Click(object sender, EventArgs e)
+        {
+            Colors.topPanel = Colors.topPanelLight;
+            Colors.menuPanel = Colors.menuPanelLight;
+            Colors.mainPanel = Colors.mainPanelLight;
+            Colors.labelColor = Colors.labelColorLight;
+            Colors.selectedControl = Colors.selectedControlLight;
+
+            lblThemeDark.ForeColor = Colors.labelColor;
+            lblThemeLight.ForeColor = Colors.selectedPanel;
+
+            InitializeComponent();
+            this.Refresh();
+        }
+
+        private void WriteToFile(string theme) 
+        {
+            StreamWriter writer = null;
+            try
+            {
+                writer = new StreamWriter(themePath);
+                writer.WriteLine(theme);
+            }
+            finally 
+            {
+                if (writer != null)
+                    writer.Close();
             }
         }
     }
