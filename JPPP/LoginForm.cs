@@ -16,22 +16,24 @@ namespace JPPP
 
         static string themeFile = "theme.txt";
         string themePath = Path.Combine(Environment.CurrentDirectory, themeFile);
-        string theme;
+        string theme = "dark";
         
         public LoginForm()
         {
             StreamReader reader = null;
             InitializeComponent();
-            /*try
+            try
             {
                 reader = new StreamReader(themePath);
                 theme = reader.ReadLine();
                 if (theme.Equals("light"))
                 {
+                    reader.Close();
                     lblThemeLight_Click(lblThemeLight, new EventArgs());
                 }
                 else if (theme.Equals("dark"))
                 {
+                    reader.Close();
                     lblThemeDark_Click(lblThemeDark, new EventArgs());
                 }
             }
@@ -43,7 +45,7 @@ namespace JPPP
             {
                 if(reader != null)
                     reader.Close();
-            }*/
+            }
                
         }
 
@@ -92,13 +94,14 @@ namespace JPPP
             Colors.mainPanel = Colors.mainPanelDark;
             Colors.labelColor = Colors.labelColorDark;
             Colors.selectedControl = Colors.selectedControlDark;
-            
+
+            InitializeComponent();
+            this.Refresh();
 
             lblThemeDark.ForeColor = Colors.selectedPanel;
             lblThemeLight.ForeColor = Colors.labelColor;
 
-            InitializeComponent();
-            this.Refresh();
+            WriteToFile("dark");
         }
 
         private void lblThemeLight_Click(object sender, EventArgs e)
@@ -109,11 +112,13 @@ namespace JPPP
             Colors.labelColor = Colors.labelColorLight;
             Colors.selectedControl = Colors.selectedControlLight;
 
+            InitializeComponent();
+            this.Refresh();
+
             lblThemeDark.ForeColor = Colors.labelColor;
             lblThemeLight.ForeColor = Colors.selectedPanel;
 
-            InitializeComponent();
-            this.Refresh();
+            WriteToFile("light");
         }
 
         private void WriteToFile(string theme) 
