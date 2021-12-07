@@ -16,5 +16,27 @@ namespace JPPP
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (System.Windows.Forms.Application.OpenForms["LoginForm"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["LoginForm"] as LoginForm).closeLogInFormManually();
+            }
+            this.Close();
+        }
+
+        private void ChangeColors() 
+        {
+            this.btnLogout.BackColor = Colors.menuPanel;
+            this.btnLogout.ForeColor = Colors.labelColor;
+            this.pnlMenu.BackColor = Colors.menuPanel;
+            this.lblUsername.ForeColor = Colors.labelColor;
+        }
+
+        private void GeneralMenuForm_Load(object sender, EventArgs e)
+        {
+            ChangeColors();
+        }
     }
 }

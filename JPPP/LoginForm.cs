@@ -13,7 +13,7 @@ namespace JPPP
 {
     public partial class LoginForm : GeneralForm
     {
-
+        
         static string themeFile = "theme.txt";
         string themePath = Path.Combine(Environment.CurrentDirectory, themeFile);
         string theme = "dark";
@@ -95,9 +95,7 @@ namespace JPPP
             Colors.labelColor = Colors.labelColorDark;
             Colors.selectedControl = Colors.selectedControlDark;
 
-            InitializeComponent();
-            this.Refresh();
-
+            ChangeColors();
             lblThemeDark.ForeColor = Colors.selectedPanel;
             lblThemeLight.ForeColor = Colors.labelColor;
 
@@ -112,9 +110,7 @@ namespace JPPP
             Colors.labelColor = Colors.labelColorLight;
             Colors.selectedControl = Colors.selectedControlLight;
 
-            InitializeComponent();
-            this.Refresh();
-
+            ChangeColors();
             lblThemeDark.ForeColor = Colors.labelColor;
             lblThemeLight.ForeColor = Colors.selectedPanel;
 
@@ -134,6 +130,40 @@ namespace JPPP
                 if (writer != null)
                     writer.Close();
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form userForm = new GeneralMenuForm();
+            userForm.ShowDialog();
+
+            tbUserName.Clear();
+            tbPassword.Clear();
+            tbUserName.Text = "Korisničko Ime";
+            tbUserName.ForeColor = SystemColors.WindowFrame;
+            tbPassword.UseSystemPasswordChar = false;
+            tbPassword.Text = "Lozinka";
+            tbPassword.ForeColor = SystemColors.WindowFrame;
+            btnLogin.Focus();
+        }
+
+        public void closeLogInFormManually()
+        {
+            this.Close();
+        }
+
+        private void ChangeColors() 
+        {
+            this.topPanel.BackColor = Colors.topPanel;
+            this.lblTop.ForeColor = Colors.labelColor;
+            this.tbUserName.BackColor = Colors.menuPanel;
+            this.tbPassword.BackColor = Colors.menuPanel;
+            this.tbUserName.ForeColor = Colors.labelColor;
+            this.tbPassword.ForeColor = Colors.labelColor;
+            this.BackColor = Colors.menuPanel;
+            this.btnClose.BackColor = Colors.topPanel;
+            this.btnMinimize.BackColor = Colors.topPanel;
         }
     }
 }

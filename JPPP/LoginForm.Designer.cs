@@ -34,38 +34,35 @@ namespace JPPP
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.lblTheme = new System.Windows.Forms.Label();
             this.lblThemeDark = new System.Windows.Forms.Label();
             this.lblThemeLight = new System.Windows.Forms.Label();
+            this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // topPanel
-            // 
-            this.topPanel.BackColor = Colors.topPanel;
             // 
             // lblTop
             // 
             this.lblTop.Text = "Prijavite se na sistem";
-            this.lblTop.ForeColor = Colors.labelColor;
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Visible = false;
-            this.btnMaximize.BackColor = Colors.topPanel;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = Colors.topPanel;
             // 
             // btnMinimize
             // 
-            this.btnMinimize.BackColor = Colors.topPanel;
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnMaximize.Visible = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             // 
             // tbUserName
             // 
-            this.tbUserName.BackColor = Colors.mainPanel;
+            this.tbUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.tbUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbUserName.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserName.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -79,7 +76,7 @@ namespace JPPP
             // 
             // tbPassword
             // 
-            this.tbPassword.BackColor = Colors.mainPanel;
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPassword.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -105,6 +102,7 @@ namespace JPPP
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Prijavite se";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // pbLogo
             // 
@@ -116,22 +114,13 @@ namespace JPPP
             this.pbLogo.TabIndex = 3;
             this.pbLogo.TabStop = false;
             // 
-            // lblTheme
-            // 
-            this.lblTheme.AutoSize = true;
-            this.lblTheme.Location = new System.Drawing.Point(159, 412);
-            this.lblTheme.Name = "lblTheme";
-            this.lblTheme.Size = new System.Drawing.Size(37, 13);
-            this.lblTheme.TabIndex = 4;
-            this.lblTheme.Text = "Teme:";
-            // 
             // lblThemeDark
             // 
             this.lblThemeDark.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblThemeDark.AutoSize = true;
             this.lblThemeDark.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblThemeDark.ForeColor = Colors.labelColor;
+            this.lblThemeDark.ForeColor = System.Drawing.SystemColors.Info;
             this.lblThemeDark.Location = new System.Drawing.Point(78, 432);
             this.lblThemeDark.Name = "lblThemeDark";
             this.lblThemeDark.Size = new System.Drawing.Size(30, 13);
@@ -145,7 +134,7 @@ namespace JPPP
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblThemeLight.AutoSize = true;
             this.lblThemeLight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblThemeLight.ForeColor = Colors.labelColor;
+            this.lblThemeLight.ForeColor = System.Drawing.SystemColors.Info;
             this.lblThemeLight.Location = new System.Drawing.Point(242, 432);
             this.lblThemeLight.Name = "lblThemeLight";
             this.lblThemeLight.Size = new System.Drawing.Size(30, 13);
@@ -155,27 +144,29 @@ namespace JPPP
             // 
             // LoginForm
             // 
-            this.BackColor = Colors.mainPanel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(375, 485);
             this.Controls.Add(this.lblThemeLight);
             this.Controls.Add(this.lblThemeDark);
-            this.Controls.Add(this.lblTheme);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
+            this.Controls.SetChildIndex(this.topPanel, 0);
             this.Controls.SetChildIndex(this.tbUserName, 0);
             this.Controls.SetChildIndex(this.tbPassword, 0);
             this.Controls.SetChildIndex(this.btnLogin, 0);
             this.Controls.SetChildIndex(this.pbLogo, 0);
-            this.Controls.SetChildIndex(this.lblTheme, 0);
             this.Controls.SetChildIndex(this.lblThemeDark, 0);
             this.Controls.SetChildIndex(this.lblThemeLight, 0);
+            this.topPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,7 +179,6 @@ namespace JPPP
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Label lblTheme;
         private System.Windows.Forms.Label lblThemeDark;
         private System.Windows.Forms.Label lblThemeLight;
     }

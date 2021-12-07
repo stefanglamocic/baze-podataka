@@ -37,23 +37,39 @@ namespace JPPP
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.pnlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
+            // topPanel
+            // 
+            this.topPanel.Size = new System.Drawing.Size(950, 28);
+            // 
             // lblTop
             // 
             this.lblTop.Size = new System.Drawing.Size(950, 28);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Location = new System.Drawing.Point(866, 0);
             // 
             // btnMaximize
             // 
             this.btnMaximize.Location = new System.Drawing.Point(894, 0);
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(922, 0);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = Colors.menuPanel;
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.pnlMenu.Controls.Add(this.pnlGroup);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.pnlInfo);
@@ -114,7 +130,7 @@ namespace JPPP
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = Colors.labelColor;
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.Info;
             this.lblUsername.Location = new System.Drawing.Point(127, 35);
             this.lblUsername.MaximumSize = new System.Drawing.Size(143, 54);
             this.lblUsername.Name = "lblUsername";
@@ -142,8 +158,13 @@ namespace JPPP
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneralMenuForm";
             this.Text = "GeneralMenuForm";
+            this.Load += new System.EventHandler(this.GeneralMenuForm_Load);
+            this.Controls.SetChildIndex(this.topPanel, 0);
             this.Controls.SetChildIndex(this.pnlMenu, 0);
+            this.topPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlInfo.ResumeLayout(false);
             this.pnlInfo.PerformLayout();
