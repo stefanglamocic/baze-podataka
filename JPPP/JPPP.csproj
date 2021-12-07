@@ -110,6 +110,8 @@
     <Content Include="Resources\application_exit_icon_181084.png" />
     <None Include="Resources\LogoJPPGP.png" />
     <None Include="Resources\log-out_icon1.png" />
+    <None Include="Resources\log-out_icon2.bmp" />
+    <None Include="Resources\log-out_icon2.png" />
     <Content Include="Resources\window_maximize_icon_181228.png" />
     <Content Include="Resources\window_minimize_icon_181229.png" />
     <Content Include="Resources\window_restore_icon_181231.png" />

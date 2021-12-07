@@ -159,8 +159,14 @@ namespace JPPP
             this.lblTop.ForeColor = Colors.labelColor;
             this.tbUserName.BackColor = Colors.menuPanel;
             this.tbPassword.BackColor = Colors.menuPanel;
-            this.tbUserName.ForeColor = Colors.labelColor;
-            this.tbPassword.ForeColor = Colors.labelColor;
+            if(tbUserName.Text == "Korisničko Ime")
+                tbUserName.ForeColor = SystemColors.WindowFrame;
+            else
+                this.tbUserName.ForeColor = Colors.labelColor;
+            if(tbPassword.Text == "Lozinka")
+                tbPassword.ForeColor = SystemColors.WindowFrame;
+            else
+                this.tbPassword.ForeColor = Colors.labelColor;
             this.BackColor = Colors.menuPanel;
             this.btnClose.BackColor = Colors.topPanel;
             this.btnMinimize.BackColor = Colors.topPanel;

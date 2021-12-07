@@ -32,6 +32,10 @@ namespace JPPP
             this.btnLogout.ForeColor = Colors.labelColor;
             this.pnlMenu.BackColor = Colors.menuPanel;
             this.lblUsername.ForeColor = Colors.labelColor;
+            if (Colors.labelColor == Colors.labelColorDark)
+                this.btnLogout.Image = Properties.Resources.log_out_icon1;
+            else if(Colors.labelColor == Colors.labelColorLight)
+                this.btnLogout.Image = Properties.Resources.log_out_icon2;
         }
 
         private void GeneralMenuForm_Load(object sender, EventArgs e)
