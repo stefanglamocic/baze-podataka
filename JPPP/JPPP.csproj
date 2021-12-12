@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,6 +55,7 @@
     <Compile Include="CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\UserDataAccess.cs" />
     <Compile Include="GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +74,7 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GeneralForm.resx">

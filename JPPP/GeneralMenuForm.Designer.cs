@@ -37,6 +37,7 @@ namespace JPPP
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
@@ -102,6 +103,7 @@ namespace JPPP
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Odjavi se";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pnlInfo
             // 
@@ -131,13 +133,13 @@ namespace JPPP
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.Info;
-            this.lblUsername.Location = new System.Drawing.Point(127, 35);
+            this.lblUsername.Location = new System.Drawing.Point(152, 35);
             this.lblUsername.MaximumSize = new System.Drawing.Size(143, 54);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(73, 19);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbLogo
             // 
@@ -149,11 +151,24 @@ namespace JPPP
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblWelcome.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.SystemColors.Info;
+            this.lblWelcome.Location = new System.Drawing.Point(256, 28);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(694, 522);
+            this.lblWelcome.TabIndex = 2;
+            this.lblWelcome.Text = "Dobrodosli";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GeneralMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 550);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneralMenuForm";
@@ -161,6 +176,7 @@ namespace JPPP
             this.Load += new System.EventHandler(this.GeneralMenuForm_Load);
             this.Controls.SetChildIndex(this.topPanel, 0);
             this.Controls.SetChildIndex(this.pnlMenu, 0);
+            this.Controls.SetChildIndex(this.lblWelcome, 0);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
@@ -182,5 +198,6 @@ namespace JPPP
         protected System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel pnlGroup;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }

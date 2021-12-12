@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using JPPP.DataAccess;
+using JPPP.Model;
 
 namespace JPPP
 {
@@ -17,11 +19,14 @@ namespace JPPP
         static string themeFile = "theme.txt";
         string themePath = Path.Combine(Environment.CurrentDirectory, themeFile);
         string theme = "dark";
+
+        List<User> users = new List<User>();
         
         public LoginForm()
         {
             StreamReader reader = null;
             InitializeComponent();
+            users = UserDataAccess.GetUsers();
             try
             {
                 reader = new StreamReader(themePath);
@@ -134,23 +139,50 @@ namespace JPPP
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form userForm = new GeneralMenuForm();
-            userForm.ShowDialog();
+            string username = tbUserName.Text;
+            string password = tbPassword.Text;
+            bool usernameCheck = false;
+            foreach (User u in users) 
+            {
+                if (u.Username.Equals(username)) 
+                {
+                    usernameCheck = true;
+                    //ovo je trenutno za pw plaintext
+                    if (u.Password.Equals(password)) 
+                    {
+                        this.Hide();
+                        Form userForm = new GeneralMenuForm(u);
+                        userForm.ShowDialog();
 
-            tbUserName.Clear();
-            tbPassword.Clear();
-            tbUserName.Text = "Korisničko Ime";
-            tbUserName.ForeColor = SystemColors.WindowFrame;
-            tbPassword.UseSystemPasswordChar = false;
-            tbPassword.Text = "Lozinka";
-            tbPassword.ForeColor = SystemColors.WindowFrame;
-            btnLogin.Focus();
+                        tbUserName.Clear();
+                        tbPassword.Clear();
+                        tbUserName.Text = "Korisničko Ime";
+                        tbUserName.ForeColor = SystemColors.WindowFrame;
+                        tbPassword.UseSystemPasswordChar = false;
+                        tbPassword.Text = "Lozinka";
+                        tbPassword.ForeColor = SystemColors.WindowFrame;
+                        btnLogin.Focus();
+                    }
+                    else
+                        MessageBox.Show("Pogresna lozinka!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (usernameCheck == false)
+                MessageBox.Show("Korisnik ne postoji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
         }
 
-        public void closeLogInFormManually()
+        public void CloseLoginFormManually()
         {
             this.Close();
+        }
+
+        public void ShowLoginForm() 
+        {
+            this.Show();
+            //UserDataAccess userDataAccess = new UserDataAccess();
+            //users = userDataAccess.GetUsers();
         }
 
         private void ChangeColors() 
