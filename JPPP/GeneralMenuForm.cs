@@ -17,8 +17,26 @@ namespace JPPP
         public GeneralMenuForm(User user)
         {
             InitializeComponent();
+            this.lblTop.Text = "JP Protivgradna preventiva";
             this.lblWelcome.Text = $"Dobrodošli {user.FirstName} {user.LastName} \n Odaberite neku od opcija na lijevom panelu";
             this.lblUsername.Text = user.Username;
+            DetermineUserType(user);
+        }
+
+        private void DetermineUserType(User user) 
+        {
+            switch (user.UserType)
+            {
+                case "ar":
+                    this.lblRole.Text = "administrativni radnik";
+                    break;
+                case "m":
+                    this.lblRole.Text = "meteorolog";
+                    break;
+                case "s":
+                    this.lblRole.Text = "strijelac";
+                    break;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

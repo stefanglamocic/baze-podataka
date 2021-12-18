@@ -34,6 +34,7 @@ namespace JPPP
             this.pnlGroup = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlInfo = new System.Windows.Forms.Panel();
+            this.pnlContainer = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -44,6 +45,7 @@ namespace JPPP
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.pnlInfo.SuspendLayout();
+            this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,8 +109,7 @@ namespace JPPP
             // 
             // pnlInfo
             // 
-            this.pnlInfo.Controls.Add(this.lblRole);
-            this.pnlInfo.Controls.Add(this.lblUsername);
+            this.pnlInfo.Controls.Add(this.pnlContainer);
             this.pnlInfo.Controls.Add(this.pbLogo);
             this.pnlInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlInfo.Location = new System.Drawing.Point(0, 0);
@@ -116,27 +117,36 @@ namespace JPPP
             this.pnlInfo.Size = new System.Drawing.Size(256, 147);
             this.pnlInfo.TabIndex = 0;
             // 
+            // pnlContainer
+            // 
+            this.pnlContainer.Controls.Add(this.lblRole);
+            this.pnlContainer.Controls.Add(this.lblUsername);
+            this.pnlContainer.Location = new System.Drawing.Point(118, 32);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Size = new System.Drawing.Size(123, 80);
+            this.pnlContainer.TabIndex = 3;
+            // 
             // lblRole
             // 
-            this.lblRole.AutoSize = true;
+            this.lblRole.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblRole.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(182)))), ((int)(((byte)(216)))));
-            this.lblRole.Location = new System.Drawing.Point(144, 76);
+            this.lblRole.Location = new System.Drawing.Point(0, 33);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(29, 14);
+            this.lblRole.Size = new System.Drawing.Size(123, 47);
             this.lblRole.TabIndex = 2;
             this.lblRole.Text = "role";
             this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUsername
             // 
-            this.lblUsername.AutoSize = true;
+            this.lblUsername.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblUsername.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.Info;
-            this.lblUsername.Location = new System.Drawing.Point(152, 35);
+            this.lblUsername.Location = new System.Drawing.Point(0, 0);
             this.lblUsername.MaximumSize = new System.Drawing.Size(143, 54);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 19);
+            this.lblUsername.Size = new System.Drawing.Size(123, 19);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,7 +193,7 @@ namespace JPPP
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlInfo.ResumeLayout(false);
-            this.pnlInfo.PerformLayout();
+            this.pnlContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -199,5 +209,6 @@ namespace JPPP
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel pnlGroup;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Panel pnlContainer;
     }
 }

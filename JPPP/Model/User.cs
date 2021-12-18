@@ -14,5 +14,6 @@ namespace JPPP.Model
         public string LastName { get; set; }
         public string Password { get; set; }
         public string JMB { get; set; }
+        public string UserType { get; set; }
     }
 }
