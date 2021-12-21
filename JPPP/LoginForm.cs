@@ -96,6 +96,7 @@ namespace JPPP
             Colors.mainPanel = Colors.mainPanelDark;
             Colors.labelColor = Colors.labelColorDark;
             Colors.selectedControl = Colors.selectedControlDark;
+            Colors.selectedLabelColor = Colors.labelColorLight;
 
             ChangeColors();
             lblThemeDark.ForeColor = Colors.selectedPanel;
@@ -111,6 +112,7 @@ namespace JPPP
             Colors.mainPanel = Colors.mainPanelLight;
             Colors.labelColor = Colors.labelColorLight;
             Colors.selectedControl = Colors.selectedControlLight;
+            Colors.selectedLabelColor = Colors.labelColorDark;
 
             ChangeColors();
             lblThemeDark.ForeColor = Colors.labelColor;

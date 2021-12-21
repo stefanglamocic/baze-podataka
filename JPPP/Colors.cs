@@ -29,5 +29,6 @@ namespace JPPP
         public static Color mainPanel = mainPanelDark;
         public static Color labelColor = labelColorDark;
         public static Color selectedControl = selectedControlDark;
+        public static Color selectedLabelColor = labelColorLight;
     }
 }

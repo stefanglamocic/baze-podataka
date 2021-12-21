@@ -18,7 +18,8 @@ namespace JPPP
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(250, 47);
-            this.ForeColor = SystemColors.Info;
+            this.ForeColor = Colors.labelColor;
+            this.Font = new Font("Calibri", 11f, FontStyle.Regular);
             InitializeComponent();
         }
 

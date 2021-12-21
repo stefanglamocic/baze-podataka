@@ -104,17 +104,20 @@ namespace JPPP.DataAccess
             cmd.CommandText = $"SELECT * FROM osoba o JOIN {fromTable} a ON o.osoba_id = a.osoba_id";
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
+            switch (fromTable)
             {
-                users.Add(new User()
-                {
-                    UserID = reader.GetInt32(0),
-                    JMB = reader.GetString(1),
-                    FirstName = reader.GetString(2),
-                    LastName = reader.GetString(3),
-                    Username = reader.GetString(4),
-                    Password = reader.GetString(5),
-                });
+                case "administrativni_radnik":
+                    while (reader.Read())
+                        users.Add(GetUserFromReader(reader, "ar"));
+                    break;
+                case "strijelac":
+                    while (reader.Read())
+                        users.Add(GetUserFromReader(reader, "s"));
+                    break;
+                case "meteorolog":
+                    while (reader.Read())
+                        users.Add(GetUserFromReader(reader, "m"));
+                    break;
             }
 
             reader.Close();
