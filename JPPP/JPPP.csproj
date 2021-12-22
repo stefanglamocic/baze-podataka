@@ -56,6 +56,30 @@
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\UserDataAccess.cs" />
+    <Compile Include="ErrorMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorMessageForm.Designer.cs">
+      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminWorkerOption1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminWorkerOption1.Designer.cs">
+      <DependentUpon>AdminWorkerOption1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminWorkerOption2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminWorkerOption2.Designer.cs">
+      <DependentUpon>AdminWorkerOption2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminWorkerOption3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminWorkerOption3.Designer.cs">
+      <DependentUpon>AdminWorkerOption3.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +101,18 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ErrorMessageForm.resx">
+      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminWorkerOption1.resx">
+      <DependentUpon>AdminWorkerOption1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminWorkerOption2.resx">
+      <DependentUpon>AdminWorkerOption2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminWorkerOption3.resx">
+      <DependentUpon>AdminWorkerOption3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GeneralForm.resx">
       <DependentUpon>GeneralForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -14,8 +14,9 @@ namespace JPPP
 {
     public partial class GeneralMenuForm : GeneralForm
     {
-        CustomButton button1, button2, button3, selectedButton;
+        private CustomButton button1, button2, button3, selectedButton;
         User user;
+        private Form activeForm;
 
         public GeneralMenuForm(User user)
         {
@@ -109,6 +110,8 @@ namespace JPPP
                     selectedButton = (CustomButton)sender;
                     selectedButton.BackColor = Colors.selectedPanel;
                     selectedButton.ForeColor = Colors.selectedLabelColor;
+                    lblTop.Text = selectedButton.Text;
+                    lblWelcome.Hide();
                 }
             }
         }
@@ -125,19 +128,39 @@ namespace JPPP
             }
         }
 
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.pnlMain.Controls.Add(childForm);
+            this.pnlMain.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            if (user.UserType.Equals("ar"))
+                OpenChildForm(new Forms.AdminWorkerOption1());
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            if (user.UserType.Equals("ar"))
+                OpenChildForm(new Forms.AdminWorkerOption2());
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
             HighlightButton(sender);
+            if (user.UserType.Equals("ar"))
+                OpenChildForm(new Forms.AdminWorkerOption3());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

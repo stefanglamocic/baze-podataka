@@ -39,6 +39,7 @@ namespace JPPP
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
@@ -47,6 +48,7 @@ namespace JPPP
             this.pnlInfo.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
@@ -166,19 +168,28 @@ namespace JPPP
             this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblWelcome.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.SystemColors.Info;
-            this.lblWelcome.Location = new System.Drawing.Point(256, 28);
+            this.lblWelcome.Location = new System.Drawing.Point(0, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(694, 522);
             this.lblWelcome.TabIndex = 2;
             this.lblWelcome.Text = "Dobrodosli";
             this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnlMain
+            // 
+            this.pnlMain.Controls.Add(this.lblWelcome);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(256, 28);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(694, 522);
+            this.pnlMain.TabIndex = 2;
+            // 
             // GeneralMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 550);
-            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneralMenuForm";
@@ -186,7 +197,7 @@ namespace JPPP
             this.Load += new System.EventHandler(this.GeneralMenuForm_Load);
             this.Controls.SetChildIndex(this.topPanel, 0);
             this.Controls.SetChildIndex(this.pnlMenu, 0);
-            this.Controls.SetChildIndex(this.lblWelcome, 0);
+            this.Controls.SetChildIndex(this.pnlMain, 0);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
@@ -195,6 +206,7 @@ namespace JPPP
             this.pnlInfo.ResumeLayout(false);
             this.pnlContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -210,5 +222,6 @@ namespace JPPP
         private System.Windows.Forms.Panel pnlGroup;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Panel pnlContainer;
+        private System.Windows.Forms.Panel pnlMain;
     }
 }

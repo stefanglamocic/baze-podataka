@@ -143,7 +143,8 @@ namespace JPPP
             User user = UserDataAccess.GetUser(username);
             if (user == null)
             {
-                MessageBox.Show("Korisnik ne postoji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new ErrorMessageForm("Korisnik ne postoji").ShowDialog();
+                //MessageBox.Show("Korisnik ne postoji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -163,7 +164,8 @@ namespace JPPP
                     btnLogin.Focus();
                 }
                 else
-                    MessageBox.Show("Pogresna lozinka!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    new ErrorMessageForm("Pogrešna lozinka!").ShowDialog();
+                    //MessageBox.Show("Pogresna lozinka!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
