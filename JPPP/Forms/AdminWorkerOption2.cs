@@ -16,7 +16,6 @@ namespace JPPP.Forms
         {
             InitializeComponent();
             this.BackColor = Colors.mainPanel;
-            this.label1.ForeColor = Colors.labelColor;
         }
     }
 }

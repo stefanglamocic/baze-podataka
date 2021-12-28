@@ -73,6 +73,16 @@ namespace JPPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_find_icon_181110 {
+            get {
+                object obj = ResourceManager.GetObject("edit_find_icon_181110", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap log_out_icon1 {
             get {
                 object obj = ResourceManager.GetObject("log-out_icon1", resourceCulture);

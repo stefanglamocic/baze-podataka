@@ -18,6 +18,8 @@ namespace JPPP
             this.btnMinimize.Hide();
             this.btnMaximize.Hide();
             this.lblTop.Text = "Greška!";
+            this.lblTop.Padding = new Padding(8, 0, 0, 0);
+            this.lblTop.TextAlign = ContentAlignment.MiddleLeft;
             this.lblMessage.Text = message;
         }
 
@@ -27,6 +29,7 @@ namespace JPPP
             this.BackColor = Colors.mainPanel;
             this.lblMessage.ForeColor = Colors.labelColor;
             this.lblTop.ForeColor = Colors.labelColor;
+            this.pbError.Image = System.Drawing.SystemIcons.Error.ToBitmap();
         }
     }
 }

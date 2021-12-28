@@ -32,11 +32,13 @@ namespace JPPP
             this.btnOK = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbError = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbError)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -88,11 +90,22 @@ namespace JPPP
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pbError);
             this.panel1.Controls.Add(this.lblMessage);
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(414, 67);
             this.panel1.TabIndex = 3;
+            // 
+            // pbError
+            // 
+            this.pbError.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbError.Location = new System.Drawing.Point(0, 0);
+            this.pbError.Name = "pbError";
+            this.pbError.Size = new System.Drawing.Size(73, 67);
+            this.pbError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbError.TabIndex = 3;
+            this.pbError.TabStop = false;
             // 
             // ErrorMessageForm
             // 
@@ -112,6 +125,7 @@ namespace JPPP
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbError)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,5 +135,6 @@ namespace JPPP
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pbError;
     }
 }
