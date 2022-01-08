@@ -24,7 +24,8 @@ namespace JPPP.CustomControls
             this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             this.pictureBox1.Image = Properties.Resources.edit_find_icon_181110;
             this.textBox1.BackColor = Colors.mainPanel;
-            this.textBox1.ForeColor = Colors.labelColor;
+            this.textBox1.ForeColor = SystemColors.WindowFrame;
+            this.textBox1.Text = "Pretraži...";
         }
 
         public event EventHandler _TextChanged;
@@ -132,12 +133,22 @@ namespace JPPP.CustomControls
         {
             isFocused = true;
             this.Invalidate();
+            if (textBox1.Text == "Pretraži...")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Colors.labelColor;
+            }
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             isFocused = false;
             this.Invalidate();
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Pretraži...";
+                textBox1.ForeColor = SystemColors.WindowFrame;
+            }
         }
     }
 }

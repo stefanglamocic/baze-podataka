@@ -15,12 +15,15 @@ namespace JPPP.Forms
     public partial class AdminWorkerOption1 : Form
     {
         List<User> users = new List<User>();
+        List<User> adminWorkers, meteorologists, operators;
+        DataTable dt;
         public AdminWorkerOption1()
         {
             InitializeComponent();
             this.BackColor = Colors.mainPanel;
             CustomizeDGV(dgvUsers);
-            FillUsersGrid();
+            FillUsersGrid(customComboBox1.SelectedIndex);
+            dgvUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void CustomizeDGV(DataGridView dgv)
@@ -37,14 +40,53 @@ namespace JPPP.Forms
             dgv.RowsDefaultCellStyle.ForeColor = Colors.labelColor;
         }
 
-        private void FillUsersGrid() 
+        private void customComboBox1_OnIndexChanged(object sender, EventArgs e)
         {
-            users.AddRange(UserDataAccess.GetAdminWorkers());
-            users.AddRange(UserDataAccess.GetMeteorologists());
-            users.AddRange(UserDataAccess.GetOperators());
+            FillUsersGrid(customComboBox1.SelectedIndex);
+        }
+
+        private void searchTextBox1__TextChanged(object sender, EventArgs e)
+        {
+            string text = searchTextBox1.textBox1.Text;
+            if (!text.Equals("Pretraži..."))
+            {
+                (dgvUsers.DataSource as DataTable).DefaultView.RowFilter = "Ime Like '" + text + "%'";
+            }
+        }
+
+        private void FillUsersGrid(int optionSelected) 
+        {
+            dt = new DataTable();
+            dt.Columns.Add("Ime");
+            dt.Columns.Add("Prezime");
+            dt.Columns.Add("JMB");
+            dt.Columns.Add("Tip Korisnika");
+            users.Clear();
+            adminWorkers = UserDataAccess.GetAdminWorkers();
+            meteorologists = UserDataAccess.GetMeteorologists();
+            operators = UserDataAccess.GetOperators();
+
+            switch (optionSelected) 
+            {
+                case 1: users.AddRange(adminWorkers);
+                    break;
+                case 2: users.AddRange(meteorologists);
+                    break;
+                case 3: users.AddRange(operators);
+                    break;
+                default:
+                    {
+                        users.AddRange(adminWorkers);
+                        users.AddRange(meteorologists);
+                        users.AddRange(operators);
+                    }
+                    break;
+            }
+            
 
             DataGridView dgv = dgvUsers;
-            dgv.Rows.Clear();
+            dt.Rows.Clear();
+            //dgv.Rows.Clear();
 
             foreach(var u in users)
             {
@@ -64,9 +106,16 @@ namespace JPPP.Forms
                         break;
                 }
 
-                row.CreateCells(dgv, u.FirstName, u.LastName, u.JMB, userType);
-                dgv.Rows.Add(row);
+                dt.Rows.Add(new object[] { u.FirstName, u.LastName, u.JMB, userType });
+                dgv.DataSource = dt;
+                //row.CreateCells(dgv, u.FirstName, u.LastName, u.JMB, userType);
+                //dgv.Rows.Add(row);
             }
+        }
+
+        private void customComboBox1_Load(object sender, EventArgs e)
+        {
+            this.customComboBox1.SelectedIndex = 0;
         }
     }
 }
