@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JPPP.Model;
 using JPPP.DataAccess;
+using JPPP.Renderer;
 
 namespace JPPP.Forms
 {
@@ -23,6 +24,17 @@ namespace JPPP.Forms
             CustomizeDGV(dgvUsers);
             FillUsersGrid(cbUserTypes.SelectedIndex);
             dgvUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            CustomizeCMS(cmsAWOption1);
+        }
+
+        public static void CustomizeCMS(ContextMenuStrip cms)
+        {
+            cms.BackColor = Colors.menuPanel;
+            foreach(ToolStripMenuItem i in cms.Items)
+            {
+                i.ForeColor = Colors.labelColor;
+            }
+            cms.Renderer = new CustomRenderer();
         }
 
         public static void CustomizeDGV(DataGridView dgv)
@@ -57,6 +69,33 @@ namespace JPPP.Forms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             new AddUserForm().ShowDialog();
+        }
+
+        private void dgvUsers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView temp = (sender as DataGridView);
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    DataGridViewCell clickedCell = (sender as DataGridView).Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    temp.CurrentCell = clickedCell;
+                    var relativeMousePosition = temp.PointToClient(Cursor.Position);
+                    cmsAWOption1.Show(temp, relativeMousePosition);
+                }
+            }
+        }
+
+        private void izmjenaToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            ToolStripMenuItem temp = (sender as ToolStripMenuItem);
+            temp.ForeColor = Colors.selectedLabelColor;
+        }
+
+        private void izmjenaToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            ToolStripMenuItem temp = (sender as ToolStripMenuItem);
+            temp.ForeColor = Colors.labelColor;
         }
 
         private void FillUsersGrid(int optionSelected) 

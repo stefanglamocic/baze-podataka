@@ -29,15 +29,20 @@ namespace JPPP.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.cbUserTypes = new JPPP.CustomControls.CustomComboBox();
-            this.tbSearch = new JPPP.CustomControls.SearchTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.cmsAWOption1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.izmjenaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbSearch = new JPPP.CustomControls.SearchTextBox();
+            this.cbUserTypes = new JPPP.CustomControls.CustomComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.cmsAWOption1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvUsers
@@ -90,6 +95,66 @@ namespace JPPP.Forms
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(606, 381);
             this.dgvUsers.TabIndex = 17;
+            this.dgvUsers.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_CellMouseDown);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(73)))), ((int)(((byte)(23)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(128)))), ((int)(((byte)(209)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(658, 396);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(118, 42);
+            this.btnAdd.TabIndex = 22;
+            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // cmsAWOption1
+            // 
+            this.cmsAWOption1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.izmjenaToolStripMenuItem,
+            this.obrišiToolStripMenuItem});
+            this.cmsAWOption1.Name = "cmsAWOption1";
+            this.cmsAWOption1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmsAWOption1.ShowImageMargin = false;
+            this.cmsAWOption1.Size = new System.Drawing.Size(156, 70);
+            // 
+            // izmjenaToolStripMenuItem
+            // 
+            this.izmjenaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.izmjenaToolStripMenuItem.Name = "izmjenaToolStripMenuItem";
+            this.izmjenaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.izmjenaToolStripMenuItem.Text = "Izmjena";
+            this.izmjenaToolStripMenuItem.MouseEnter += new System.EventHandler(this.izmjenaToolStripMenuItem_MouseEnter);
+            this.izmjenaToolStripMenuItem.MouseLeave += new System.EventHandler(this.izmjenaToolStripMenuItem_MouseLeave);
+            // 
+            // obrišiToolStripMenuItem
+            // 
+            this.obrišiToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.obrišiToolStripMenuItem.Text = "Obriši";
+            this.obrišiToolStripMenuItem.MouseEnter += new System.EventHandler(this.izmjenaToolStripMenuItem_MouseEnter);
+            this.obrišiToolStripMenuItem.MouseLeave += new System.EventHandler(this.izmjenaToolStripMenuItem_MouseLeave);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.tbSearch.BorderSize = 1;
+            this.tbSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearch.Location = new System.Drawing.Point(12, 16);
+            this.tbSearch.Multiline = false;
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Padding = new System.Windows.Forms.Padding(5);
+            this.tbSearch.Size = new System.Drawing.Size(200, 30);
+            this.tbSearch.TabIndex = 21;
+            this.tbSearch.UnderlinedStyle = false;
+            this.tbSearch._TextChanged += new System.EventHandler(this.searchTextBox1__TextChanged);
             // 
             // cbUserTypes
             // 
@@ -110,37 +175,6 @@ namespace JPPP.Forms
             this.cbUserTypes.OnIndexChanged += new System.EventHandler(this.customComboBox1_OnIndexChanged);
             this.cbUserTypes.Load += new System.EventHandler(this.customComboBox1_Load);
             // 
-            // tbSearch
-            // 
-            this.tbSearch.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.tbSearch.BorderSize = 1;
-            this.tbSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(12, 16);
-            this.tbSearch.Multiline = false;
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Padding = new System.Windows.Forms.Padding(5);
-            this.tbSearch.Size = new System.Drawing.Size(200, 30);
-            this.tbSearch.TabIndex = 21;
-            this.tbSearch.UnderlinedStyle = false;
-            this.tbSearch._TextChanged += new System.EventHandler(this.searchTextBox1__TextChanged);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(73)))), ((int)(((byte)(23)))));
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(128)))), ((int)(((byte)(209)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(658, 396);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(118, 42);
-            this.btnAdd.TabIndex = 22;
-            this.btnAdd.Text = "Dodaj";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // AdminWorkerOption1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +187,7 @@ namespace JPPP.Forms
             this.Name = "AdminWorkerOption1";
             this.Text = "AdminWorkerOption1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.cmsAWOption1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -163,5 +198,8 @@ namespace JPPP.Forms
         private CustomControls.CustomComboBox cbUserTypes;
         private CustomControls.SearchTextBox tbSearch;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ContextMenuStrip cmsAWOption1;
+        private System.Windows.Forms.ToolStripMenuItem izmjenaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem obrišiToolStripMenuItem;
     }
 }
