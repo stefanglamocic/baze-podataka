@@ -95,7 +95,7 @@ namespace JPPP
             // btnLogout
             // 
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(182)))), ((int)(((byte)(216)))));
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.Info;

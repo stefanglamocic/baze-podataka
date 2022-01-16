@@ -96,7 +96,19 @@ namespace JPPP
             {
                 button1.Text = "Korisnici";
                 button2.Text = "Stanice";
+                button3.Text = "Izvjestaji";
+            }
+            else if(user.UserType.Equals("m"))
+            {
+                button1.Text = "Strijelci";
+                button2.Text = "Stanice";
                 button3.Text = "Poruke";
+            }
+            else if(user.UserType.Equals("s"))
+            {
+                button1.Text = "Meteorolozi";
+                button2.Text = "Naredbe";
+                button3.Hide();
             }
         }
 
@@ -138,6 +150,7 @@ namespace JPPP
             childForm.Dock = DockStyle.Fill;
             this.pnlMain.Controls.Add(childForm);
             this.pnlMain.Tag = childForm;
+            childForm.BackColor = Colors.mainPanel;
             childForm.BringToFront();
             childForm.Show();
         }
@@ -147,6 +160,10 @@ namespace JPPP
             HighlightButton(sender);
             if (user.UserType.Equals("ar"))
                 OpenChildForm(new Forms.AdminWorkerOption1());
+            else if (user.UserType.Equals("m"))
+                OpenChildForm(new Forms.MeteorologistOption1());
+            else if (user.UserType.Equals("s"))
+                OpenChildForm(new Forms.OperatorOption1());
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -154,6 +171,10 @@ namespace JPPP
             HighlightButton(sender);
             if (user.UserType.Equals("ar"))
                 OpenChildForm(new Forms.AdminWorkerOption2());
+            else if (user.UserType.Equals("m"))
+                OpenChildForm(new Forms.MeteorologistOption2());
+            else if (user.UserType.Equals("s"))
+                OpenChildForm(new Forms.OperatorOption2());
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -161,6 +182,8 @@ namespace JPPP
             HighlightButton(sender);
             if (user.UserType.Equals("ar"))
                 OpenChildForm(new Forms.AdminWorkerOption3());
+            else if (user.UserType.Equals("m"))
+                OpenChildForm(new Forms.MeteorologistOption3());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

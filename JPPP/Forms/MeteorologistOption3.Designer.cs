@@ -1,7 +1,7 @@
 ﻿
 namespace JPPP.Forms
 {
-    partial class AdminWorkerOption3
+    partial class MeteorologistOption3
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,10 @@ namespace JPPP.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // AdminWorkerOption3
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "AdminWorkerOption3";
-            this.Text = "AdminWorkerOption3";
-            this.ResumeLayout(false);
-
+            this.Text = "MeteorologistOption3";
         }
 
         #endregion

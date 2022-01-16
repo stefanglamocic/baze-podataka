@@ -20,13 +20,12 @@ namespace JPPP.Forms
         public AdminWorkerOption1()
         {
             InitializeComponent();
-            this.BackColor = Colors.mainPanel;
             CustomizeDGV(dgvUsers);
-            FillUsersGrid(customComboBox1.SelectedIndex);
+            FillUsersGrid(cbUserTypes.SelectedIndex);
             dgvUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
-        private void CustomizeDGV(DataGridView dgv)
+        public static void CustomizeDGV(DataGridView dgv)
         {
             dgv.BackgroundColor = Colors.menuPanel;
             dgv.GridColor = Colors.menuPanel;
@@ -42,16 +41,22 @@ namespace JPPP.Forms
 
         private void customComboBox1_OnIndexChanged(object sender, EventArgs e)
         {
-            FillUsersGrid(customComboBox1.SelectedIndex);
+            FillUsersGrid(cbUserTypes.SelectedIndex);
         }
 
         private void searchTextBox1__TextChanged(object sender, EventArgs e)
         {
-            string text = searchTextBox1.textBox1.Text;
+            string text = tbSearch.textBox1.Text;
             if (!text.Equals("Pretraži..."))
             {
-                (dgvUsers.DataSource as DataTable).DefaultView.RowFilter = "Ime Like '" + text + "%'";
+                (dgvUsers.DataSource as DataTable).DefaultView.RowFilter = "Ime Like '" + text + "%' Or " +
+                    "Prezime Like '" + text + "%' Or JMB Like '" + text + "%'";
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            new AddUserForm().ShowDialog();
         }
 
         private void FillUsersGrid(int optionSelected) 
@@ -107,15 +112,16 @@ namespace JPPP.Forms
                 }
 
                 dt.Rows.Add(new object[] { u.FirstName, u.LastName, u.JMB, userType });
-                dgv.DataSource = dt;
+                
                 //row.CreateCells(dgv, u.FirstName, u.LastName, u.JMB, userType);
                 //dgv.Rows.Add(row);
             }
+            dgv.DataSource = dt;
         }
 
         private void customComboBox1_Load(object sender, EventArgs e)
         {
-            this.customComboBox1.SelectedIndex = 0;
+            this.cbUserTypes.SelectedIndex = 0;
         }
     }
 }

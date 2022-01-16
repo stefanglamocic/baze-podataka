@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace JPPP.Forms
 {
-    public partial class AdminWorkerOption3 : Form
+    public partial class OperatorOption2 : Form
     {
-        public AdminWorkerOption3()
+        public OperatorOption2()
         {
             InitializeComponent();
-            this.BackColor = Colors.mainPanel;
         }
     }
 }
