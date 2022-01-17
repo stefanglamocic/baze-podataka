@@ -157,5 +157,16 @@ namespace JPPP.DataAccess
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static void DeleteUser(int userID)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM osoba WHERE osoba_id=@userID";
+            cmd.Parameters.AddWithValue("userID", userID);
+            conn.Open();
+            cmd.ExecuteReader();
+            conn.Close();
+        }
     }
 }

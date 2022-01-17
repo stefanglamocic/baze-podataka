@@ -102,12 +102,20 @@ namespace JPPP.Forms
         private void cmsAWOption1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             string username = dgvUsers.SelectedRows[0].Cells[3].Value.ToString();
-            switch(e.ClickedItem.Name.ToString())
+            int userID = Int32.Parse(dgvUsers.SelectedRows[0].Cells[0].Value.ToString());
+            switch (e.ClickedItem.Name.ToString())
             {
                 case "obrišiToolStripMenuItem":
-                    new WarningMessageForm("Da li ste sigurni da zelite obrisati korisnika " + username).ShowDialog();
+                    {
+                        DialogResult dialogResult = new WarningMessageForm("Da li ste sigurni da zelite obrisati korisnika " + username).ShowDialog();
+                        if(dialogResult == DialogResult.Yes)
+                        {
+                            UserDataAccess.DeleteUser(userID);
+                        }
+                    }
                     break;
             }
+            FillUsersGrid(cbUserTypes.SelectedIndex);
         }
 
         public void FillUsersGrid(int optionSelected) 
