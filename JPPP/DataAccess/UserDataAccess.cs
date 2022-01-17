@@ -139,5 +139,23 @@ namespace JPPP.DataAccess
         {
             return GetUserGroup("strijelac");
         }
+
+        public static void AddUser(User user)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand("insert_user", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@type", user.UserType);
+            cmd.Parameters.AddWithValue("@JMB", user.JMB);
+            cmd.Parameters.AddWithValue("@ime", user.FirstName);
+            cmd.Parameters.AddWithValue("@prezime", user.LastName);
+            cmd.Parameters.AddWithValue("@korisnicko_ime", user.Username);
+            cmd.Parameters.AddWithValue("@lozinka", user.Password);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

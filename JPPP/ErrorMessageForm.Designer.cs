@@ -79,14 +79,14 @@ namespace JPPP
             // 
             // lblMessage
             // 
-            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMessage.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(0, 0);
+            this.lblMessage.Location = new System.Drawing.Point(70, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(414, 67);
+            this.lblMessage.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lblMessage.Size = new System.Drawing.Size(344, 67);
             this.lblMessage.TabIndex = 2;
             this.lblMessage.Text = "label1";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 

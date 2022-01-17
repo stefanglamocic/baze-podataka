@@ -23,7 +23,8 @@ namespace JPPP.Forms
             InitializeComponent();
             CustomizeDGV(dgvUsers);
             FillUsersGrid(cbUserTypes.SelectedIndex);
-            dgvUsers.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvUsers.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvUsers.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CustomizeCMS(cmsAWOption1);
         }
 
@@ -62,13 +63,13 @@ namespace JPPP.Forms
             if (!text.Equals("Pretraži..."))
             {
                 (dgvUsers.DataSource as DataTable).DefaultView.RowFilter = "Ime Like '" + text + "%' Or " +
-                    "Prezime Like '" + text + "%' Or JMB Like '" + text + "%'";
+                    "Prezime Like '" + text + "%' Or [Korisničko ime] Like '" + text + "%' Or ID Like '" + text + "%'";
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            new AddUserForm().ShowDialog();
+            new AddUserForm(cbUserTypes.SelectedIndex).ShowDialog();
         }
 
         private void dgvUsers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -98,13 +99,26 @@ namespace JPPP.Forms
             temp.ForeColor = Colors.labelColor;
         }
 
-        private void FillUsersGrid(int optionSelected) 
+        private void cmsAWOption1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string username = dgvUsers.SelectedRows[0].Cells[3].Value.ToString();
+            switch(e.ClickedItem.Name.ToString())
+            {
+                case "obrišiToolStripMenuItem":
+                    new WarningMessageForm("Da li ste sigurni da zelite obrisati korisnika " + username).ShowDialog();
+                    break;
+            }
+        }
+
+        public void FillUsersGrid(int optionSelected) 
         {
             dt = new DataTable();
+            dt.Columns.Add("ID");
             dt.Columns.Add("Ime");
             dt.Columns.Add("Prezime");
-            dt.Columns.Add("JMB");
+            dt.Columns.Add("Korisničko ime");
             dt.Columns.Add("Tip Korisnika");
+            
             users.Clear();
             adminWorkers = UserDataAccess.GetAdminWorkers();
             meteorologists = UserDataAccess.GetMeteorologists();
@@ -134,10 +148,10 @@ namespace JPPP.Forms
 
             foreach(var u in users)
             {
-                DataGridViewRow row = new DataGridViewRow()
+                /*DataGridViewRow row = new DataGridViewRow()
                 {
                     Tag = u
-                };
+                };*/
 
                 string userType = null;
                 switch(u.UserType)
@@ -149,8 +163,8 @@ namespace JPPP.Forms
                     case "s": userType = "strijelac";
                         break;
                 }
-
-                dt.Rows.Add(new object[] { u.FirstName, u.LastName, u.JMB, userType });
+                
+                dt.Rows.Add(new object[] { u.UserID, u.FirstName, u.LastName, u.Username, userType });
                 
                 //row.CreateCells(dgv, u.FirstName, u.LastName, u.JMB, userType);
                 //dgv.Rows.Add(row);
