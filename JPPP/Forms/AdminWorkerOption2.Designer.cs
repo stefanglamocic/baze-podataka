@@ -105,6 +105,7 @@ namespace JPPP.Forms
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tbSearch
             // 

@@ -12,5 +12,6 @@ namespace JPPP.Model
         public string Municipality { get; set; }
         public string Place { get; set; }
         public int RegisteredOperatorID { get; set; }
+        public User Operator { get; set; }
     }
 }

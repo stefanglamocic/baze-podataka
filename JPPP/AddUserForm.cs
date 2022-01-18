@@ -94,9 +94,9 @@ namespace JPPP
                     throw new ArgumentException("Prezime nije unešeno, molimo pokušajte ponovo.");
                 if (tbUsername.TextLength == 0)
                     throw new ArgumentException("Korisničko ime nije unešeno, molimo pokušajte ponovo.");
-                if (tbPassword.TextLength == 0 && !changeUser)
+                if (!changeUser && tbPassword.TextLength == 0)
                     throw new ArgumentException("Lozinka nije unešena, molimo pokušajte ponovo.");
-                if (UsernameExists(tbUsername.Text) && !changeUser)
+                if (!changeUser && UsernameExists(tbUsername.Text))
                     throw new ArgumentException("Korisničko ime već postoji!");
                 if (tbJMB.TextLength == 0) //tbJMB.TextLength != 13
                     throw new ArgumentException("JMB nije pravilno unešen, molimo pokušajte ponovo.");

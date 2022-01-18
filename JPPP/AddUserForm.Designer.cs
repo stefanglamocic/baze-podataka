@@ -146,7 +146,7 @@ namespace JPPP
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(102, 18);
             this.lblUsername.TabIndex = 16;
-            this.lblUsername.Text = "Korisnicko Ime:";
+            this.lblUsername.Text = "Korisničko Ime:";
             // 
             // tbUsername
             // 
@@ -193,7 +193,7 @@ namespace JPPP
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 36);
             this.btnSave.TabIndex = 21;
-            this.btnSave.Text = "Sacuvaj";
+            this.btnSave.Text = "Sačuvaj";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -210,7 +210,7 @@ namespace JPPP
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 36);
             this.btnCancel.TabIndex = 22;
-            this.btnCancel.Text = "Ponisti";
+            this.btnCancel.Text = "Poništi";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // cbUserTypes

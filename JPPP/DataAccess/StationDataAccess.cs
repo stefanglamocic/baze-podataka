@@ -13,14 +13,17 @@ namespace JPPP.DataAccess
     {
         private static readonly string connectionString = ConfigurationManager.ConnectionStrings["JPPGP"].ConnectionString;
 
-        private static Station GetStationFromReader(MySqlDataReader reader) 
+        private static Station GetStationFromReader(MySqlDataReader reader)
         {
+            if(reader.GetValue(3) != null)
+            {
+
+            }
             return new Station()
             {
                 StationID = reader.GetInt32(0),
                 Municipality = reader.GetString(1),
-                Place = reader.GetString(2),
-                RegisteredOperatorID = reader.GetInt32(3)
+                Place = reader.GetString(2)
             };
         }
 
@@ -39,6 +42,20 @@ namespace JPPP.DataAccess
             conn.Close();
 
             return stations;
+        }
+
+        public static void AddStation(Station station)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand("insert_station", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@opstina", station.Municipality);
+            cmd.Parameters.AddWithValue("@mjesto", station.Place);
+            if(station.Operator != null)
+                cmd.Parameters.AddWithValue("@osoba_id", station.Operator.UserID);
+            else
+                cmd.Parameters.AddWithValue("@osoba_id", null);
         }
     }
 }
