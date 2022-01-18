@@ -142,4 +142,10 @@
   <data name="edit_find_icon_181110" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_find_icon_181110.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eye_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye_icon_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_icon_selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -225,6 +225,8 @@
     <None Include="Resources\log-out_icon2.bmp" />
     <None Include="Resources\log-out_icon2.png" />
     <None Include="Resources\edit_find_icon_181110.png" />
+    <None Include="Resources\eye_icon.png" />
+    <None Include="Resources\eye_icon_selected.png" />
     <Content Include="Resources\window_maximize_icon_181228.png" />
     <Content Include="Resources\window_minimize_icon_181229.png" />
     <Content Include="Resources\window_restore_icon_181231.png" />

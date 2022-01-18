@@ -43,10 +43,12 @@ namespace JPPP
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbUserTypes = new JPPP.CustomControls.CustomComboBox();
             this.lblUserType = new System.Windows.Forms.Label();
+            this.pbEye = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEye)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -176,7 +178,7 @@ namespace JPPP
             this.tbPassword.ForeColor = System.Drawing.Color.White;
             this.tbPassword.Location = new System.Drawing.Point(277, 235);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(188, 28);
+            this.tbPassword.Size = new System.Drawing.Size(170, 28);
             this.tbPassword.TabIndex = 19;
             // 
             // btnSave
@@ -239,11 +241,27 @@ namespace JPPP
             this.lblUserType.TabIndex = 24;
             this.lblUserType.Text = "Tip korisnika:";
             // 
+            // pbEye
+            // 
+            this.pbEye.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(70)))), ((int)(((byte)(72)))));
+            this.pbEye.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbEye.Image = global::JPPP.Properties.Resources.eye_icon;
+            this.pbEye.Location = new System.Drawing.Point(450, 235);
+            this.pbEye.Margin = new System.Windows.Forms.Padding(2);
+            this.pbEye.Name = "pbEye";
+            this.pbEye.Size = new System.Drawing.Size(28, 28);
+            this.pbEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEye.TabIndex = 25;
+            this.pbEye.TabStop = false;
+            this.pbEye.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbEye_MouseDown);
+            this.pbEye.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbEye_MouseUp);
+            // 
             // AddUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 446);
+            this.Controls.Add(this.pbEye);
             this.Controls.Add(this.lblUserType);
             this.Controls.Add(this.cbUserTypes);
             this.Controls.Add(this.btnCancel);
@@ -260,6 +278,7 @@ namespace JPPP
             this.Controls.Add(this.tbFirstName);
             this.Name = "AddUserForm";
             this.Text = "AddUserForm";
+            this.Load += new System.EventHandler(this.AddUserForm_Load);
             this.Controls.SetChildIndex(this.topPanel, 0);
             this.Controls.SetChildIndex(this.tbFirstName, 0);
             this.Controls.SetChildIndex(this.lblFirstName, 0);
@@ -275,10 +294,12 @@ namespace JPPP
             this.Controls.SetChildIndex(this.btnCancel, 0);
             this.Controls.SetChildIndex(this.cbUserTypes, 0);
             this.Controls.SetChildIndex(this.lblUserType, 0);
+            this.Controls.SetChildIndex(this.pbEye, 0);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEye)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +321,6 @@ namespace JPPP
         private System.Windows.Forms.Button btnCancel;
         private CustomControls.CustomComboBox cbUserTypes;
         private System.Windows.Forms.Label lblUserType;
+        private System.Windows.Forms.PictureBox pbEye;
     }
 }

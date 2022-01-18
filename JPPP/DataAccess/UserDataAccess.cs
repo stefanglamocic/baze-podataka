@@ -168,5 +168,32 @@ namespace JPPP.DataAccess
             cmd.ExecuteReader();
             conn.Close();
         }
+
+        public static void UpdateUser(int userID, User user, bool changePassword)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = conn.CreateCommand();
+            string tempCmd = "UPDATE osoba SET JMB=@JMB, ime=@firstName, prezime=@lastName, " +
+                "korisnicko_ime=@username";
+
+            if (changePassword)
+            {
+                tempCmd += ", lozinka=@password";
+                cmd.Parameters.AddWithValue("@password", user.Password);
+            }
+            
+            tempCmd += " WHERE osoba.osoba_id=@userID";
+            cmd.CommandText = tempCmd;
+
+            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@JMB", user.JMB);
+            cmd.Parameters.AddWithValue("@firstName", user.FirstName);
+            cmd.Parameters.AddWithValue("@lastName", user.LastName);
+            cmd.Parameters.AddWithValue("@username", user.Username);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

@@ -159,7 +159,7 @@ namespace JPPP
         {
             HighlightButton(sender);
             if (user.UserType.Equals("ar"))
-                OpenChildForm(new Forms.AdminWorkerOption1());
+                OpenChildForm(new Forms.AdminWorkerOption1(user.Username));
             else if (user.UserType.Equals("m"))
                 OpenChildForm(new Forms.MeteorologistOption1());
             else if (user.UserType.Equals("s"))

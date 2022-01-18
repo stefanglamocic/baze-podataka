@@ -18,7 +18,8 @@ namespace JPPP.Forms
         List<User> users = new List<User>();
         List<User> adminWorkers, meteorologists, operators;
         DataTable dt;
-        public AdminWorkerOption1()
+        string loggedInUsername;
+        public AdminWorkerOption1(string loggedInUsername)
         {
             InitializeComponent();
             CustomizeDGV(dgvUsers);
@@ -26,6 +27,7 @@ namespace JPPP.Forms
             dgvUsers.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvUsers.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CustomizeCMS(cmsAWOption1);
+            this.loggedInUsername = loggedInUsername;
         }
 
         public static void CustomizeCMS(ContextMenuStrip cms)
@@ -107,12 +109,20 @@ namespace JPPP.Forms
             {
                 case "obrišiToolStripMenuItem":
                     {
-                        DialogResult dialogResult = new WarningMessageForm("Da li ste sigurni da zelite obrisati korisnika " + username).ShowDialog();
-                        if(dialogResult == DialogResult.Yes)
+                        if (username.Equals(loggedInUsername))
+                            new ErrorMessageForm("Ne možete obrisati svoj profil!").ShowDialog();
+                        else
                         {
-                            UserDataAccess.DeleteUser(userID);
+                            DialogResult dialogResult = new WarningMessageForm("Da li ste sigurni da zelite obrisati korisnika " + username).ShowDialog();
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                UserDataAccess.DeleteUser(userID);
+                            }
                         }
                     }
+                    break;
+                case "izmjenaToolStripMenuItem":
+                    new AddUserForm(username).ShowDialog();
                     break;
             }
             FillUsersGrid(cbUserTypes.SelectedIndex);
