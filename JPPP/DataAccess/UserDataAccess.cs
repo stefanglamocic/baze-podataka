@@ -140,6 +140,7 @@ namespace JPPP.DataAccess
             return GetUserGroup("strijelac");
         }
 
+
         public static void AddUser(User user)
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
@@ -194,6 +195,22 @@ namespace JPPP.DataAccess
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public static List<User> GetAvailableOperators()
+        {
+            List<User> operators = new List<User>();
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandText = "SELECT * FROM slobodan_strijelac_view";
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+                operators.Add(GetUserFromReader(reader, "s"));
+            reader.Close();
+            conn.Close();
+            return operators;
         }
     }
 }

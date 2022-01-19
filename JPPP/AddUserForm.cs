@@ -46,8 +46,11 @@ namespace JPPP
             {
                 if (c is Label)
                     ((Label)c).ForeColor = Colors.labelColor;
-                else if (c is TextBox)
+                else if (c is TextBox) 
+                {
                     ((TextBox)c).BackColor = Colors.mainPanel;
+                    ((TextBox)c).ForeColor = Colors.labelColor;
+                }
             }
         }
 

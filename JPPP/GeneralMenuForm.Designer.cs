@@ -95,7 +95,6 @@ namespace JPPP
             // btnLogout
             // 
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.Info;
@@ -143,7 +142,7 @@ namespace JPPP
             // lblUsername
             // 
             this.lblUsername.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblUsername.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.Info;
             this.lblUsername.Location = new System.Drawing.Point(0, 0);
             this.lblUsername.MaximumSize = new System.Drawing.Size(143, 54);

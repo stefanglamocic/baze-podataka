@@ -49,9 +49,10 @@ namespace JPPP.Forms
             dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Colors.mainPanel;
             dgv.DefaultCellStyle.SelectionBackColor = Colors.selectedPanel;
             dgv.DefaultCellStyle.ForeColor = Colors.labelColor;
-            dgv.DefaultCellStyle.Font = new Font("Calibri", 9f);
+            dgv.DefaultCellStyle.Font = new Font("Calibri", 10f);
             dgv.RowsDefaultCellStyle.BackColor = Colors.menuPanel;
             dgv.RowsDefaultCellStyle.ForeColor = Colors.labelColor;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Calibri", 11f, FontStyle.Bold);
         }
 
         private void customComboBox1_OnIndexChanged(object sender, EventArgs e)

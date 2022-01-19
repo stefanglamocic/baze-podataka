@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JPPP.DataAccess;
+using JPPP.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,10 @@ namespace JPPP
 {
     public partial class AddStationForm : GeneralForm
     {
+        bool change = false;
+        Station station;
+        List<User> availableOperators;
+        
         public AddStationForm()
         {
             InitializeComponent();
@@ -19,6 +25,31 @@ namespace JPPP
             this.btnMinimize.Hide();
             this.btnMaximize.Hide();
             AddUserForm.AddingFormChangeColors(this);
+            availableOperators = UserDataAccess.GetAvailableOperators();
+            AddOperatorsToCB();
+        }
+
+        public AddStationForm(int stationID) : this()
+        {
+            this.lblTop.Text = "Podesi informacije o stanici";
+            change = true;
+            station = StationDataAccess.GetStationByID(stationID);
+            tbMunicipality.Text = station.Municipality;
+            tbPlace.Text = station.Place;
+            if(station.Operator != null) 
+            {
+                availableOperators.Insert(0, station.Operator);
+                cbOperators.SelectedIndex = 0;
+            }
+                
+            cbOperators.Items.Clear();
+            AddOperatorsToCB();
+        }
+
+        private void AddOperatorsToCB()
+        {
+            foreach (User u in availableOperators)
+                cbOperators.Items.Add(u.UserID.ToString() + "/" + u.Username);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -30,13 +61,38 @@ namespace JPPP
                 if (tbPlace.TextLength == 0)
                     throw new ArgumentException("Niste unijeli mjesto. Molimo pokusajte ponovo.");
 
-                //insert station
+                Station station = new Station()
+                {
+                    Municipality = tbMunicipality.Text,
+                    Place = tbPlace.Text
+                };
+
+                if(cbOperators.SelectedIndex > -1)
+                {
+                    station.Operator = GetOperatorFromCB();
+                }
+
+                if(!change)
+                    StationDataAccess.AddStation(station);
+                else
+                {
+                    //update stanice
+                    station.StationID = this.station.StationID;
+                    StationDataAccess.UpdateStation(station);
+                }
+
                 CloseOutForm();
             }
             catch(Exception exception)
             {
                 new ErrorMessageForm(exception.Message).ShowDialog();
             }
+        }
+
+        private User GetOperatorFromCB()
+        {
+            string username = (cbOperators.SelectedItem.ToString().Split('/'))[1];
+            return UserDataAccess.GetUser(username);
         }
 
         private void CloseOutForm()

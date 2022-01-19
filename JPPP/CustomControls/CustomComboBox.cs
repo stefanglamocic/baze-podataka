@@ -16,7 +16,7 @@ namespace JPPP.CustomControls
     {
         private int borderSize = 1;
 
-        private ComboBox cbList;
+        public ComboBox cbList;
         private Label lblText;
         private Button btnIcon;
 

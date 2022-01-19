@@ -29,14 +29,19 @@ namespace JPPP.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStations = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.cmsAdminOption2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.podesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obrišiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSearch = new JPPP.CustomControls.SearchTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStations)).BeginInit();
+            this.cmsAdminOption2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvStations
@@ -89,6 +94,8 @@ namespace JPPP.Forms
             this.dgvStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStations.Size = new System.Drawing.Size(606, 381);
             this.dgvStations.TabIndex = 18;
+            this.dgvStations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStations_CellDoubleClick);
+            this.dgvStations.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStations_CellMouseDown);
             // 
             // btnAdd
             // 
@@ -106,6 +113,33 @@ namespace JPPP.Forms
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // cmsAdminOption2
+            // 
+            this.cmsAdminOption2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.podesiToolStripMenuItem,
+            this.obrišiToolStripMenuItem});
+            this.cmsAdminOption2.Name = "cmsAdminOption2";
+            this.cmsAdminOption2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmsAdminOption2.ShowImageMargin = false;
+            this.cmsAdminOption2.Size = new System.Drawing.Size(156, 70);
+            this.cmsAdminOption2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsAdminOption2_ItemClicked);
+            // 
+            // podesiToolStripMenuItem
+            // 
+            this.podesiToolStripMenuItem.Name = "podesiToolStripMenuItem";
+            this.podesiToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.podesiToolStripMenuItem.Text = "Podesi";
+            this.podesiToolStripMenuItem.MouseEnter += new System.EventHandler(this.podesiToolStripMenuItem_MouseEnter);
+            this.podesiToolStripMenuItem.MouseLeave += new System.EventHandler(this.podesiToolStripMenuItem_MouseLeave);
+            // 
+            // obrišiToolStripMenuItem
+            // 
+            this.obrišiToolStripMenuItem.Name = "obrišiToolStripMenuItem";
+            this.obrišiToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.obrišiToolStripMenuItem.Text = "Obriši";
+            this.obrišiToolStripMenuItem.MouseEnter += new System.EventHandler(this.podesiToolStripMenuItem_MouseEnter);
+            this.obrišiToolStripMenuItem.MouseLeave += new System.EventHandler(this.podesiToolStripMenuItem_MouseLeave);
             // 
             // tbSearch
             // 
@@ -132,6 +166,7 @@ namespace JPPP.Forms
             this.Name = "AdminWorkerOption2";
             this.Text = "AdminWorkerOption2";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStations)).EndInit();
+            this.cmsAdminOption2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -141,5 +176,8 @@ namespace JPPP.Forms
         private System.Windows.Forms.DataGridView dgvStations;
         private CustomControls.SearchTextBox tbSearch;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ContextMenuStrip cmsAdminOption2;
+        private System.Windows.Forms.ToolStripMenuItem podesiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem obrišiToolStripMenuItem;
     }
 }
