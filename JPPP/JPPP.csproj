@@ -76,6 +76,7 @@
     <Compile Include="CustomControls\SearchTextBox.Designer.cs">
       <DependentUpon>SearchTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\OperatorDataAccess.cs" />
     <Compile Include="DataAccess\StationDataAccess.cs" />
     <Compile Include="DataAccess\UserDataAccess.cs" />
     <Compile Include="ErrorMessageForm.cs">
@@ -150,6 +151,7 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Operator.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />

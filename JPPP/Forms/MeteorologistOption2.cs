@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace JPPP.Forms
 {
-    public partial class MeteorologistOption2 : Form
+    public partial class MeteorologistOption2 : Form //Stanice
     {
         DataTable dt;
         List<Station> stations = new List<Station>();
