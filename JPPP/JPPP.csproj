@@ -152,6 +152,7 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Operator.cs" />
+    <Compile Include="Model\Rockets.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
@@ -162,6 +163,12 @@
     </Compile>
     <Compile Include="StationInfoForm.Designer.cs">
       <DependentUpon>StationInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StationStockInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StationStockInfoForm.Designer.cs">
+      <DependentUpon>StationStockInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WarningMessageForm.cs">
       <SubType>Form</SubType>
@@ -215,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StationInfoForm.resx">
       <DependentUpon>StationInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationStockInfoForm.resx">
+      <DependentUpon>StationStockInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarningMessageForm.resx">
       <DependentUpon>WarningMessageForm.cs</DependentUpon>

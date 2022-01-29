@@ -70,6 +70,33 @@ namespace JPPP.DataAccess
             return station;
         }
 
+        public static Station GetStationStockInfo(int stationID) 
+        {
+            Station station = null;
+            List<Rockets> rocketStock = new List<Rockets>();
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM skladiste_view WHERE stanica_id=@stationID";
+            cmd.Parameters.AddWithValue("@stationID", stationID);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) 
+            {
+                rocketStock.Add(new Rockets()
+                {
+                    RocketID = reader.GetInt32(4),
+                    Type = reader.GetString(5),
+                    Quantity = reader.GetInt32(6)
+                });
+            }
+            station = new Station() {
+                RocketStock = rocketStock
+            };
+            reader.Close();
+            conn.Close();
+            return station;
+        }
+
         public static void AddStation(Station station)
         {
             MySqlConnection conn = new MySqlConnection(connectionString);

@@ -50,5 +50,11 @@ namespace JPPP.Forms
                     "Opstina Like '" + text + "%' Or Mjesto Like '" + text + "%'";
             }
         }
+
+        private void dgvStations_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int stationID = Int32.Parse(dgvStations.SelectedRows[0].Cells[0].Value.ToString());
+            new StationStockInfoForm(stationID).ShowDialog();
+        }
     }
 }

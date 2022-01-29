@@ -88,6 +88,7 @@ namespace JPPP.Forms
             this.dgvStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStations.Size = new System.Drawing.Size(776, 381);
             this.dgvStations.TabIndex = 20;
+            this.dgvStations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStations_CellDoubleClick);
             // 
             // tbSearch
             // 
