@@ -163,7 +163,7 @@ namespace JPPP
             else if (user.UserType.Equals("m"))
                 OpenChildForm(new Forms.MeteorologistOption1());
             else if (user.UserType.Equals("s"))
-                OpenChildForm(new Forms.OperatorOption1());
+                OpenChildForm(new Forms.OperatorOption1(user.UserID));
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -183,7 +183,7 @@ namespace JPPP
             if (user.UserType.Equals("ar"))
                 OpenChildForm(new Forms.AdminWorkerOption3());
             else if (user.UserType.Equals("m"))
-                OpenChildForm(new Forms.MeteorologistOption3());
+                OpenChildForm(new Forms.MeteorologistOption3(user.UserID));
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

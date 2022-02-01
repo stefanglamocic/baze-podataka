@@ -16,24 +16,26 @@ namespace JPPP.Forms
     {
         List<User> meteorologists = new List<User>();
         DataTable dt;
-
-        public OperatorOption1()
+        int operatorID;
+        public OperatorOption1(int userID)
         {
             InitializeComponent();
             AdminWorkerOption1.CustomizeDGV(this.dgvMeteorologists);
             FillMeteorologistsGrid();
+            operatorID = userID;
         }
 
-        private void FillMeteorologistsGrid()
+        public void FillMeteorologistsGrid()
         {
             dt = new DataTable();
+            dt.Columns.Add("ID");
             dt.Columns.Add("Ime");
             dt.Columns.Add("Prezime");
             dt.Rows.Clear();
 
             meteorologists = UserDataAccess.GetMeteorologists();
             foreach (var m in meteorologists)
-                dt.Rows.Add(new object[] { m.FirstName, m.LastName});
+                dt.Rows.Add(new object[] { m.UserID, m.FirstName, m.LastName});
 
             dgvMeteorologists.DataSource = dt;
         }
@@ -44,8 +46,14 @@ namespace JPPP.Forms
             if (!text.Equals("Pretraži..."))
             {
                 (dgvMeteorologists.DataSource as DataTable).DefaultView.RowFilter = "Ime Like '" + text + "%' Or " +
-                    "Prezime Like '" + text + "%'";
+                    "Prezime Like '" + text + "%' Or ID Like '" + text + "%'";
             }
+        }
+
+        private void btnSendMsg_Click(object sender, EventArgs e)
+        {
+            int meteorologistID = Int32.Parse(dgvMeteorologists.SelectedRows[0].Cells[0].Value.ToString());
+            new MessageForm(operatorID, meteorologistID).ShowDialog();
         }
     }
 }
