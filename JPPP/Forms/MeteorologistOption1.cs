@@ -16,14 +16,16 @@ namespace JPPP.Forms
     {
         DataTable dt;
         List<Operator> operators = new List<Operator>();
-        public MeteorologistOption1()
+        int meteorologistID;
+        public MeteorologistOption1(int userID)
         {
             InitializeComponent();
+            meteorologistID = userID;
             AdminWorkerOption1.CustomizeDGV(this.dgvOperators);
             FillOperatorsGrid();
         }
 
-        private void FillOperatorsGrid() 
+        public void FillOperatorsGrid() 
         {
             dt = new DataTable();
             dt.Columns.Add("ID Strijelca");
@@ -52,6 +54,17 @@ namespace JPPP.Forms
                 (dgvOperators.DataSource as DataTable).DefaultView.RowFilter = "[ID Strijelca] Like '" + text + "%' Or " +
                     "Ime Like '" + text + "%' Or Prezime Like '" + text + "%'";
             }
+        }
+
+        private void btnCommand_Click(object sender, EventArgs e)
+        {
+            int operatorID = Int32.Parse(dgvOperators.SelectedRows[0].Cells[0].Value.ToString());
+            String stationID = dgvOperators.SelectedRows[0].Cells[3].Value.ToString();
+            if (stationID.Equals("N/A"))
+                new ErrorMessageForm("Strijelac " + operatorID + " nije registrovan " +
+                    "ni u jednoj stanici").ShowDialog();
+            else
+                new NewCommandForm(meteorologistID, operatorID).ShowDialog();
         }
     }
 }

@@ -104,7 +104,7 @@ namespace JPPP
             this.lblMunicipality.Name = "lblMunicipality";
             this.lblMunicipality.Size = new System.Drawing.Size(59, 18);
             this.lblMunicipality.TabIndex = 26;
-            this.lblMunicipality.Text = "Opstina:";
+            this.lblMunicipality.Text = "Opština:";
             // 
             // tbMunicipality
             // 
