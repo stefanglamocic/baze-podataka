@@ -61,6 +61,12 @@
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Colors.cs" />
+    <Compile Include="CommandInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandInfoForm.Designer.cs">
+      <DependentUpon>CommandInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -170,6 +176,7 @@
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Operator.cs" />
     <Compile Include="Model\Rockets.cs" />
+    <Compile Include="Model\RocketsInStation.cs" />
     <Compile Include="Model\Station.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="NewCommandForm.cs">
@@ -204,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandInfoForm.resx">
+      <DependentUpon>CommandInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CustomRocketsTextBox.resx">
       <DependentUpon>CustomRocketsTextBox.cs</DependentUpon>

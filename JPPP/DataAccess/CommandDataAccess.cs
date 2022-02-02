@@ -85,5 +85,82 @@ namespace JPPP.DataAccess
             conn.Close();
             return commands;
         }
+
+        public static Command GetCommand(int commandID)
+        {
+            Command command = new Command()
+            { 
+                Rockets = new List<Rockets>()
+            };
+            
+            
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandText = "SELECT * FROM strijelac_naredba_view WHERE naredba_id=@commandID";
+            cmd.Parameters.AddWithValue("@commandID", commandID);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                command.Azimuth = reader.GetInt32(1);
+                command.Elevation = reader.GetInt32(2);
+                command.Rockets.Add(new Rockets() 
+                { 
+                    RocketID = reader.GetInt32(3),
+                    Type = reader.GetString(4),
+                    Quantity = reader.GetInt32(5)
+                });
+            }
+
+            reader.Close();
+            conn.Close();
+            return command;
+        }
+
+        public static void CommandDone(int commandID)
+        {
+            List<RocketsInStation> rockets = new List<RocketsInStation>();
+
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandText = "SELECT * FROM naredba_stanica_view WHERE naredba_id=@commandID";
+            cmd.Parameters.AddWithValue("@commandID", commandID);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                rockets.Add(new RocketsInStation()
+                { 
+                    RocketID = reader.GetInt32(1),
+                    Quantity = reader.GetInt32(2),
+                    StationID = reader.GetInt32(3)
+                });
+            }
+            reader.Close();
+            cmd.Parameters.Clear();
+            
+            foreach (RocketsInStation r in rockets)
+                Console.WriteLine(r.RocketID + " " + r.Quantity + " " + r.StationID);
+
+            cmd.CommandText = "UPDATE stanica_ima_rakete SET kolicina=kolicina - @quantity WHERE " +
+                "stanica_id=@stationID AND rakete_id=@rocketsID";
+            foreach(RocketsInStation r in rockets)
+            {
+                cmd.Parameters.AddWithValue("@quantity", r.Quantity);
+                cmd.Parameters.AddWithValue("@stationID", r.StationID);
+                cmd.Parameters.AddWithValue("@rocketsID", r.RocketID);
+
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+            }
+
+            cmd.CommandText = "DELETE FROM naredba WHERE naredba_id=@commandID";
+            cmd.Parameters.AddWithValue("@commandID", commandID);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

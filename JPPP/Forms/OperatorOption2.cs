@@ -46,5 +46,11 @@ namespace JPPP.Forms
         {
             FillCommandGrid();
         }
+
+        private void btnDoCmd_Click(object sender, EventArgs e)
+        {
+            int commandID = Int32.Parse(dgvCommands.SelectedRows[0].Cells[0].Value.ToString());
+            new CommandInfoForm(commandID).ShowDialog();
+        }
     }
 }
