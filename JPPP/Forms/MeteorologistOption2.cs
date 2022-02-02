@@ -16,15 +16,17 @@ namespace JPPP.Forms
     {
         DataTable dt;
         List<Station> stations = new List<Station>();
+        int meteorologistID;
 
-        public MeteorologistOption2()
+        public MeteorologistOption2(int userID)
         {
             InitializeComponent();
             AdminWorkerOption1.CustomizeDGV(this.dgvStations);
             FillStationsGrid();
+            meteorologistID = userID;
         }
 
-        private void FillStationsGrid()
+        public void FillStationsGrid()
         {
             dt = new DataTable();
             dt.Columns.Add("ID");
@@ -55,6 +57,12 @@ namespace JPPP.Forms
         {
             int stationID = Int32.Parse(dgvStations.SelectedRows[0].Cells[0].Value.ToString());
             new StationStockInfoForm(stationID).ShowDialog();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            int stationID = Int32.Parse(dgvStations.SelectedRows[0].Cells[0].Value.ToString());
+            new ReportForm(stationID, meteorologistID).ShowDialog();
         }
     }
 }
