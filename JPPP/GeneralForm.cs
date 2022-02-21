@@ -20,6 +20,7 @@ namespace JPPP
         public GeneralForm()
         {
             InitializeComponent();
+            this.lblTop.ForeColor = Colors.topLabel;
         }
 
         private void topPanel_MouseMove(object sender, MouseEventArgs e)

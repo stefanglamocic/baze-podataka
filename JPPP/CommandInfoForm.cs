@@ -57,8 +57,10 @@ namespace JPPP
 
         private void btnDoCmd_Click(object sender, EventArgs e)
         {
-            CommandDataAccess.CommandDone(command.CommandID);
+            //CommandDataAccess.CommandDone(command.CommandID);
             CloseOutForm();
+            DoCommandForm form = new DoCommandForm(command);
+            form.ShowDialog();
         }
     }
 }

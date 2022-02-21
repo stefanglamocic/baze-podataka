@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JPPP.Model
 {
-    class Command
+    public class Command
     {
         public int CommandID { get; set; }
         public User Meteorologist { get; set; }

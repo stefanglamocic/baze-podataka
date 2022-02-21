@@ -95,6 +95,12 @@
     <Compile Include="DataAccess\RocketsDataAccess.cs" />
     <Compile Include="DataAccess\StationDataAccess.cs" />
     <Compile Include="DataAccess\UserDataAccess.cs" />
+    <Compile Include="DoCommandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoCommandForm.Designer.cs">
+      <DependentUpon>DoCommandForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ErrorMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     <EmbeddedResource Include="CustomControls\SearchTextBox.resx">
       <DependentUpon>SearchTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DoCommandForm.resx">
+      <DependentUpon>DoCommandForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ErrorMessageForm.resx">
       <DependentUpon>ErrorMessageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +335,8 @@
     <None Include="Resources\eye_icon.png" />
     <None Include="Resources\eye_icon_selected.png" />
     <None Include="Resources\refresh.png" />
+    <None Include="Resources\srb.png" />
+    <None Include="Resources\uk.png" />
     <Content Include="Resources\window_maximize_icon_181228.png" />
     <Content Include="Resources\window_minimize_icon_181229.png" />
     <Content Include="Resources\window_restore_icon_181231.png" />

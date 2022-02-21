@@ -19,11 +19,13 @@ namespace JPPP
         static string themeFile = "theme.txt";
         string themePath = Path.Combine(Environment.CurrentDirectory, themeFile);
         string theme = "dark";
+        string language = "srb";
         
         public LoginForm()
         {
             StreamReader reader = null;
             InitializeComponent();
+            this.AcceptButton = this.btnLogin;
             try
             {
                 reader = new StreamReader(themePath);
@@ -38,6 +40,11 @@ namespace JPPP
                     reader.Close();
                     lblThemeDark_Click(lblThemeDark, new EventArgs());
                 }
+                else if(theme.Equals("pop"))
+                {
+                    reader.Close();
+                    lblThemePop_Click(lblThemePop, new EventArgs());
+                }
             }
             catch (Exception)
             {
@@ -48,7 +55,7 @@ namespace JPPP
                 if(reader != null)
                     reader.Close();
             }
-               
+            pbSrb_Click(pbSrb, new EventArgs());
         }
 
         private void tbUserName_Enter(object sender, EventArgs e)
@@ -92,6 +99,7 @@ namespace JPPP
         private void lblThemeDark_Click(object sender, EventArgs e)
         {
             Colors.topPanel = Colors.topPanelDark;
+            Colors.topLabel = Colors.topLabelColorDark;
             Colors.menuPanel = Colors.menuPanelDark;
             Colors.mainPanel = Colors.mainPanelDark;
             Colors.labelColor = Colors.labelColorDark;
@@ -101,6 +109,7 @@ namespace JPPP
             ChangeColors();
             lblThemeDark.ForeColor = Colors.selectedPanel;
             lblThemeLight.ForeColor = Colors.labelColor;
+            lblThemePop.ForeColor = Colors.labelColor;
 
             WriteToFile("dark");
         }
@@ -108,6 +117,7 @@ namespace JPPP
         private void lblThemeLight_Click(object sender, EventArgs e)
         {
             Colors.topPanel = Colors.topPanelLight;
+            Colors.topLabel = Colors.topLabelColorLight;
             Colors.menuPanel = Colors.menuPanelLight;
             Colors.mainPanel = Colors.mainPanelLight;
             Colors.labelColor = Colors.labelColorLight;
@@ -117,8 +127,26 @@ namespace JPPP
             ChangeColors();
             lblThemeDark.ForeColor = Colors.labelColor;
             lblThemeLight.ForeColor = Colors.selectedPanel;
+            lblThemePop.ForeColor = Colors.labelColor;
 
             WriteToFile("light");
+        }
+
+        private void lblThemePop_Click(object sender, EventArgs e)
+        {
+            Colors.topPanel = Colors.topPanelPop;
+            Colors.topLabel = Colors.topLabelColorPop;
+            Colors.menuPanel = Colors.menuPanelPop;
+            Colors.mainPanel = Colors.mainPanelPop;
+            Colors.labelColor = Colors.labelColorPop;
+            Colors.selectedControl = Colors.selectedControlPop;
+            Colors.selectedLabelColor = Colors.labelColorDark;
+
+            ChangeColors();
+            lblThemeDark.ForeColor = Colors.labelColor;
+            lblThemeLight.ForeColor = Colors.labelColor;
+            lblThemePop.ForeColor = Colors.selectedPanel;
+            WriteToFile("pop");
         }
 
         private void WriteToFile(string theme) 
@@ -184,7 +212,7 @@ namespace JPPP
         private void ChangeColors() 
         {
             this.topPanel.BackColor = Colors.topPanel;
-            this.lblTop.ForeColor = Colors.labelColor;
+            this.lblTop.ForeColor = Colors.topLabel;
             this.tbUserName.BackColor = Colors.menuPanel;
             this.tbPassword.BackColor = Colors.menuPanel;
             if(tbUserName.Text == "Korisničko Ime")
@@ -198,6 +226,25 @@ namespace JPPP
             this.BackColor = Colors.menuPanel;
             this.btnClose.BackColor = Colors.topPanel;
             this.btnMinimize.BackColor = Colors.topPanel;
+            this.pnlContainerSrb.BackColor = this.pnlContainerUK.BackColor = Colors.menuPanel;
+            if (language.Equals("srb"))
+                pbSrb_Click(pbSrb, new EventArgs());
+            else
+                pbUK_Click(pbUK, new EventArgs());
+        }
+
+        private void pbSrb_Click(object sender, EventArgs e)
+        {
+            language = "srb";
+            pnlContainerSrb.BackColor = Colors.selectedPanel;
+            pnlContainerUK.BackColor = Colors.menuPanel;
+        }
+
+        private void pbUK_Click(object sender, EventArgs e)
+        {
+            language = "eng";
+            pnlContainerUK.BackColor = Colors.selectedPanel;
+            pnlContainerSrb.BackColor = Colors.menuPanel;
         }
     }
 }

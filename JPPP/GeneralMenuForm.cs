@@ -22,6 +22,7 @@ namespace JPPP
         {
             InitializeComponent();
             this.lblTop.Text = "JP Protivgradna preventiva";
+            this.lblTop.ForeColor = Colors.topLabel;
             this.lblWelcome.Text = $"Dobro došli {user.FirstName} {user.LastName} \n Odaberite neku od opcija na lijevom panelu";
             this.lblUsername.Text = user.Username;
             SetUserType(user);

@@ -47,9 +47,12 @@ namespace JPPP.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int reportID = Int32.Parse(dgvReports.SelectedRows[0].Cells[0].Value.ToString());
-            ReportDataAcess.DeleteReport(reportID);
-            FillReportsGrid();
+            if (dt.Rows.Count > 0)
+            {
+                int reportID = Int32.Parse(dgvReports.SelectedRows[0].Cells[0].Value.ToString());
+                ReportDataAcess.DeleteReport(reportID);
+                FillReportsGrid();
+            }
         }
 
         private void dgvReports_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -17,14 +17,24 @@ namespace JPPP
         public static Color selectedControlDark = Color.FromArgb(76, 76, 79);
         public static Color subtitleColor = Color.FromArgb(154, 182, 216);
         public static Color labelColorDark = SystemColors.Info;
+        public static Color topLabelColorDark = SystemColors.Info;
 
         public static Color topPanelLight = Color.FromArgb(222, 222, 222);
         public static Color menuPanelLight = Color.FromArgb(247, 247, 247);
         public static Color mainPanelLight = Color.FromArgb(255, 255, 255);
         public static Color labelColorLight = Color.FromArgb(24, 32, 45);
         public static Color selectedControlLight = Color.FromArgb(180, 180, 180);
+        public static Color topLabelColorLight = Color.FromArgb(24, 32, 45);
+
+        public static Color topPanelPop = Color.FromArgb(44, 44, 44);
+        public static Color menuPanelPop = Color.FromArgb(247, 247, 247);
+        public static Color mainPanelPop = Color.FromArgb(255, 255, 255);
+        public static Color selectedControlPop = Color.FromArgb(76, 76, 79);
+        public static Color labelColorPop = Color.FromArgb(24, 32, 45);
+        public static Color topLabelColorPop = SystemColors.Info;
 
         public static Color topPanel = topPanelDark;
+        public static Color topLabel = topLabelColorDark;
         public static Color menuPanel = menuPanelDark;
         public static Color mainPanel = mainPanelDark;
         public static Color labelColor = labelColorDark;
