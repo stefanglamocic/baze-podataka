@@ -1,4 +1,5 @@
 ﻿using JPPP.CustomControls;
+using JPPP.DataAccess;
 using JPPP.Model;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Message = JPPP.Model.Message;
 
 namespace JPPP
 {
@@ -65,14 +67,43 @@ namespace JPPP
 
         private void btnDoCmd_Click(object sender, EventArgs e)
         {
-            if(!(tbMessage.Text.Equals("") || tbMessage.Text.Equals("Poruka...")))
+            try
             {
-                //Console.WriteLine("saljem poruku meteorologu");
+                foreach(CustomRocketsTextBox tb in pnlContainer.Controls)
+                {
+                    if (Int32.Parse(tb.textBox.Text) > ((Rockets)tb.Tag).Quantity)
+                        throw new ArgumentException("Unijeli ste veći broj raketa nego što je izdato\n" +
+                            "u naredbi");
+                }
+
+                if (!(tbMessage.Text.Equals("") || tbMessage.Text.Equals("Poruka...")))
+                {
+                    Message msg = new Message()
+                    {
+                        Content = tbMessage.Text,
+                        Date = DateTime.Now,
+                        OperatorID = command.Operator.UserID,
+                        MeteorologistID = command.Meteorologist.UserID,
+                    };
+
+                    MessageDataAccess.SendNewMessage(msg);
+                }
+
+                CloseOutForm();
             }
-            else
+            catch(Exception exc)
             {
-                //Console.WriteLine("ne salje se poruka");
+                new ErrorMessageForm(exc.Message).ShowDialog();
             }
+        }
+
+        private void CloseOutForm()
+        {
+            if (System.Windows.Forms.Application.OpenForms["GeneralMenuForm"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["OperatorOption2"] as Forms.OperatorOption2).FillCommandGrid();
+            }
+            this.Close();
         }
     }
 }

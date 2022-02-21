@@ -111,6 +111,14 @@ namespace JPPP.DataAccess
                     Type = reader.GetString(4),
                     Quantity = reader.GetInt32(5)
                 });
+                command.Operator = new User()
+                {
+                    UserID = reader.GetInt32(6)
+                };
+                command.Meteorologist = new User()
+                {
+                    UserID = reader.GetInt32(7)
+                };
             }
 
             reader.Close();

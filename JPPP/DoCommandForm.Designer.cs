@@ -33,6 +33,7 @@ namespace JPPP
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.tbMessage = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
@@ -93,7 +94,7 @@ namespace JPPP
             // 
             // pnlContainer
             // 
-            this.pnlContainer.Location = new System.Drawing.Point(44, 53);
+            this.pnlContainer.Location = new System.Drawing.Point(49, 60);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(383, 177);
             this.pnlContainer.TabIndex = 29;
@@ -112,11 +113,23 @@ namespace JPPP
             this.tbMessage.Enter += new System.EventHandler(this.tbMessage_Enter);
             this.tbMessage.Leave += new System.EventHandler(this.tbMessage_Leave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(22, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 19);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Količina ispaljenih raketa:";
+            // 
             // DoCommandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 511);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.btnCancel);
@@ -128,6 +141,7 @@ namespace JPPP
             this.Controls.SetChildIndex(this.btnCancel, 0);
             this.Controls.SetChildIndex(this.pnlContainer, 0);
             this.Controls.SetChildIndex(this.tbMessage, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
@@ -143,5 +157,6 @@ namespace JPPP
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.TextBox tbMessage;
+        private System.Windows.Forms.Label label1;
     }
 }
