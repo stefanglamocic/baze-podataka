@@ -89,6 +89,7 @@
       <DependentUpon>SearchTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\CommandDataAccess.cs" />
+    <Compile Include="DataAccess\CommandDoneDataAccess.cs" />
     <Compile Include="DataAccess\MessageDataAccess.cs" />
     <Compile Include="DataAccess\OperatorDataAccess.cs" />
     <Compile Include="DataAccess\ReportDataAcess.cs" />
@@ -180,6 +181,7 @@
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Command.cs" />
+    <Compile Include="Model\CommandDone.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Operator.cs" />
     <Compile Include="Model\Report.cs" />

@@ -133,7 +133,7 @@ namespace JPPP.DataAccess
             MySqlConnection conn = new MySqlConnection(connectionString);
             MySqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = "SELECT * FROM naredba_stanica_view WHERE naredba_id=@commandID";
+            cmd.CommandText = "SELECT * FROM izvrsavanje_stanica_view WHERE naredba_id=@commandID";
             cmd.Parameters.AddWithValue("@commandID", commandID);
             conn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -143,7 +143,7 @@ namespace JPPP.DataAccess
                 { 
                     RocketID = reader.GetInt32(1),
                     Quantity = reader.GetInt32(2),
-                    StationID = reader.GetInt32(3)
+                    StationID = reader.GetInt32(5)
                 });
             }
             reader.Close();

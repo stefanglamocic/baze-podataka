@@ -69,26 +69,41 @@ namespace JPPP
         {
             try
             {
-                foreach(CustomRocketsTextBox tb in pnlContainer.Controls)
+                CommandDone done = new CommandDone()
                 {
-                    if (Int32.Parse(tb.textBox.Text) > ((Rockets)tb.Tag).Quantity)
+                    CommandID = command.CommandID,
+                    Meteorologist = command.Meteorologist,
+                    Operator = command.Operator,
+                    Date = DateTime.Now,
+                    Rockets = new List<Rockets>()
+                };
+
+                foreach (CustomRocketsTextBox tb in pnlContainer.Controls)
+                {
+                    Rockets rockets = (Rockets)tb.Tag;
+                    int quantity = Int32.Parse(tb.textBox.Text);
+                    if (quantity > rockets.Quantity)
                         throw new ArgumentException("Unijeli ste veći broj raketa nego što je izdato\n" +
                             "u naredbi");
+                    else
+                    {
+                        done.Rockets.Add(new Rockets()
+                        {
+                            RocketID = rockets.RocketID,
+                            Type = rockets.Type,
+                            Quantity = quantity
+                        });
+                    }
                 }
+
 
                 if (!(tbMessage.Text.Equals("") || tbMessage.Text.Equals("Poruka...")))
                 {
-                    Message msg = new Message()
-                    {
-                        Content = tbMessage.Text,
-                        Date = DateTime.Now,
-                        OperatorID = command.Operator.UserID,
-                        MeteorologistID = command.Meteorologist.UserID,
-                    };
-
-                    MessageDataAccess.SendNewMessage(msg);
+                    done.Text = tbMessage.Text;
                 }
 
+                CommandDoneDataAccess.AddCommandDone(done);
+                CommandDataAccess.CommandDone(done.CommandID);
                 CloseOutForm();
             }
             catch(Exception exc)
